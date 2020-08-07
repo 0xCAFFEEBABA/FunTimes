@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/cardGame.unity
     guid: 1f5398f03c0e07e4d99cc10c43389620
+  - enabled: 1
+    path: Assets/Scenes/chooseDecks.unity
+    guid: 34d6e6c8fbbf0224a8410bd4f1c64fb3
   m_configObjects: {}
