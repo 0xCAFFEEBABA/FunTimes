@@ -12,13 +12,9 @@ public class sameTheme : MonoBehaviour
         // Finds the gameObject that represents the light theme
         var lightTheme = Resources.FindObjectsOfTypeAll<GameObject>().FirstOrDefault(g => g.CompareTag("LightTheme"));
 
-        UnityEngine.Debug.Log(lightTheme);
-        UnityEngine.Debug.Log(darkTheme);
-
-
         // Loads the theme data from PlayerPrefs
         // If there is no value set for theme the default is 0 ( light theme ).
-        var themeInt = PlayerPrefs.GetInt("theme", 1);
+        var themeInt = PlayerPrefs.GetInt("theme", 0);
        // Debug.Log(themeInt);
         // If theme is 0...
         if (themeInt == 0)

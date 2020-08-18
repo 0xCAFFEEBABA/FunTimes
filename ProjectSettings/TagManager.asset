@@ -6,6 +6,9 @@ TagManager:
   tags:
   - LightTheme
   - DarkTheme
+  - MainMenu
+  - SettingsMenu
+  - LanguageMenu
   layers:
   - Default
   - TransparentFX
