@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "NewCard", menuName = "Cards/FamilyTime")]
+[CreateAssetMenu(fileName = "NewCard", menuName = "Cards")]
 public class Card : ScriptableObject
 {
     public string task;
     public int id;
-    public Sprite image;
 }

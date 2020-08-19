@@ -28,8 +28,6 @@ public class KeepTheme : MonoBehaviour
         else
             // Sets by default theme = 0
             PlayerPrefs.SetInt("theme", 0);
-
-       Debug.Log(PlayerPrefs.GetInt("theme"));
     }
 
 

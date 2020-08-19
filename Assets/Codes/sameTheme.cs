@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class sameTheme : MonoBehaviour
+public class SameTheme : MonoBehaviour
 {
     public void Start()
     {
@@ -32,6 +32,5 @@ public class sameTheme : MonoBehaviour
             // Activates the Dark Theme.
             darkTheme.SetActive(true);
         }
-
     }
 }

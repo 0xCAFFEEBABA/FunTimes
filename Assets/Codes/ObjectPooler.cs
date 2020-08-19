@@ -2,17 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pooling : MonoBehaviour
+public class ObjectPooler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [System.Serializable]
+    public class Pool
     {
-        
+        public string tag;
+        public Card prefab;
+        public int size;
     }
 
-    // Update is called once per frame
-    void Update()
+    public List<Pool> pools = new List<Pool>(5);
+
+    
+
+    public Dictionary<string, Queue<GameObject>> poolDictionary;
+
+    public void Start()
     {
-        
+        poolDictionary = new Dictionary<string, Queue<GameObject>>();
     }
+
+    
 }
