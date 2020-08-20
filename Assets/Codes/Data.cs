@@ -28,6 +28,10 @@ public class Data
     /// Contains the data from the corresponding JSON file
     /// </summary>
     public JObject JsonData { get; set; }
+    /// <summary>
+    /// The number of elements inside the JSON file's array
+    /// </summary>
+    public int Length { get; set; }
    /// <summary>
    /// The language for the data and game
    /// </summary>

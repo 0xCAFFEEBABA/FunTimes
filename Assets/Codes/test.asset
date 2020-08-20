@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a903508641838ac4192bce98f6bd1479, type: 3}
-  m_Name: ft1
+  m_Name: test
   m_EditorClassIdentifier: 
-  task: Blablabla
-  sprite: {fileID: 21300000, guid: bde0ee97845c89c4b85d2fd4aa3213dc, type: 3}
+  task: BoomBoom
+  sprite: {fileID: 21300000, guid: 147cc61493d3b8b448094c5197ac71e4, type: 3}

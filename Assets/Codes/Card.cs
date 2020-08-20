@@ -7,5 +7,6 @@ using UnityEngine;
 public class Card : ScriptableObject
 {
     public string task;
-    public int id;
+    public Sprite spriteLight;
+    public Sprite spiteDark;
 }

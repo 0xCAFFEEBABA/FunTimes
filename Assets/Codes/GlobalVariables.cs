@@ -12,7 +12,15 @@ public static class GlobalVariables
     public static Data girlyTime = new Data();
     public static Data daringTime = new Data();
     public static Data schoolTime = new Data();
+    /// <summary>
+    /// A list with all Data 
+    /// </summary>
     public static List<Data> dataList = new List<Data>();
+    /// <summary>
+    /// A dictionary with key = Data and value = Pool from ObjectPooler class
+    /// </summary>
+    public static Dictionary<Data, ObjectPooler.Pool> staticDataAndPools = new Dictionary<Data, ObjectPooler.Pool>();
+
 
     #region Toggles
     //------------------- Toggles-------------------
