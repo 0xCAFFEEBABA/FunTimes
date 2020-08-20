@@ -283,6 +283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 56775090}
   - component: {fileID: 56775091}
+  - component: {fileID: 56775092}
   m_Layer: 5
   m_Name: ChooseMenuDark
   m_TagString: Untagged
@@ -329,6 +330,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec5e15f245905444e9bae9e7755d2218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &56775092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56775089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b4d1fbb6c741784ca7aec4d1a98d041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  familyToggle: {fileID: 1430843024}
+  sexyToggle: {fileID: 162375437}
+  machoToggle: {fileID: 1946192347}
+  girlyToggle: {fileID: 638674389}
+  daringToggle: {fileID: 1690782153}
+  schoolToggle: {fileID: 258447969}
 --- !u!1 &121214658
 GameObject:
   m_ObjectHideFlags: 0

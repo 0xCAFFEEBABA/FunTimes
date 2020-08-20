@@ -1,5 +1,4 @@
 ﻿using LitJson;
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,34 +6,100 @@ using UnityEngine.UI;
 
 public static class GlobalVariables
 {
-    #region Toggles and Categories
-    //------------------- Toggles and Categories -------------------
-    // For Family Time
-    public static bool familyBool = true;
-    public static string familyPath = "family";
-    // For Sexy Time
-    public static bool sexyBool;
-    public static string sexyPath = "sexy";
-    // For Macho Time
-    public static bool machoBool;
-    public static string machoPath = "macho";
-    // For Girly Time
-    public static bool girlyBool;
-    public static string girlyPath = "girly";
-    // For Daring Time
-    public static bool daringBool;
-    public static string daringPath = "daring";
-    // For School Time
-    public static bool schoolBool;
-    public static string schoolPath = "school";
+    public static Data familyTime = new Data();
+    public static Data sexyTime = new Data();
+    public static Data machoTime = new Data();
+    public static Data girlyTime = new Data();
+    public static Data daringTime = new Data();
+    public static Data schoolTime = new Data();
+    public static List<Data> dataList = new List<Data>();
+
+    #region Toggles
+    //------------------- Toggles-------------------
+    /// <summary>
+    /// Sets the toggle info for every data and adds them to the <see cref="dataList"/> List
+    /// </summary>
+    /// <returns>The <see cref="dataList"/> List that contains all data</returns>
+    public static void SetToggleBool()
+    {
+        // For Family Time
+        // Sets the toggle's boolean to true
+        familyTime.ToggleBool = true;
+        // For Sexy Time
+        // Sets the toggle's boolean to false
+        sexyTime.ToggleBool = false;
+        // For Macho Time
+        // Sets the toggle's boolean to false
+        machoTime.ToggleBool = false;
+        // For Girly Time
+        // Sets the toggle's boolean to false
+        girlyTime.ToggleBool = false;
+        // For Daring Time
+        // Sets the toggle's boolean to false
+        daringTime.ToggleBool = false;
+        // For School Time
+        // Sets the toggle's boolean to false
+        schoolTime.ToggleBool = false;
+
+    }
     #endregion
 
-    #region Languages
-    //------------------- Languages -------------------
-    // For English language
-    public static bool isEnglish = true;
-    // For Greek language
-    public static bool isGreek;
+    #region Categories
+    //------------------- Categories -------------------
+    public static void SetCategories()
+    {
+        // For Family Time
+        // Sets the category's name
+        familyTime.Category = "family";
+        // For Sexy Time
+        // Sets the category's name
+        sexyTime.Category = "sexy";
+        // For Macho Time
+        // Sets the category's name
+        machoTime.Category = "macho";
+        // For Girly Time
+        // Sets the category's name
+        girlyTime.Category = "girly";
+        // For Daring Time
+        // Sets the category's name
+        daringTime.Category = "daring";
+        // For School Time
+        // Sets the category's name
+        schoolTime.Category = "school";
+    }
+    #endregion
+
+    #region CreateList
+    /// <summary>
+    /// Creates a List of type Data that contains all categories data.
+    /// By default the language is set to English
+    /// </summary>
+    public static List<Data> CreateDataList()
+    {
+        SetCategories();
+        SetToggleBool();
+        // For Family Time
+
+        // Adds the data to the list
+        dataList.Add(familyTime);
+        // For Sexy Time
+        // Adds the data to the list
+        dataList.Add(sexyTime);
+        // For Macho Time
+        // Adds the data to the list
+        dataList.Add(machoTime);
+        // For Girly Time
+        // Adds the data to the list
+        dataList.Add(girlyTime);
+        // For Daring Time
+        // Adds the data to the list
+        dataList.Add(daringTime);
+        // For School Time
+        // Adds the data to the list
+        dataList.Add(schoolTime);
+        // Returns the now updated list
+        return dataList;
+    }
     #endregion
 
     #region Images
@@ -44,39 +109,25 @@ public static class GlobalVariables
     // Location for all card images for the dark theme
     public static string locationDark = "cardGame/DarkTheme/";
 
-    // For the Light Theme
-    public static Sprite familyLightImg = Resources.Load<Sprite>(locationLight + "family");
-    public static Sprite sexyLightImg = Resources.Load<Sprite>(locationLight + "sexy");
-    public static Sprite machoLightImg = Resources.Load<Sprite>(locationLight + "macho");
-    public static Sprite girlyLightImg = Resources.Load<Sprite>(locationLight + "girly");
-    public static Sprite daringLightImg = Resources.Load<Sprite>(locationLight + "daring");
-    public static Sprite schoolLightImg = Resources.Load<Sprite>(locationLight + "school");
-
-    // For the Dark Theme
-    public static Sprite familyDarkImg = Resources.Load<Sprite>(locationDark + "family");
-    public static Sprite sexyDarkImg = Resources.Load<Sprite>(locationDark + "sexy");
-    public static Sprite machoDarkImg = Resources.Load<Sprite>(locationDark + "macho");
-    public static Sprite girlyDarkImg = Resources.Load<Sprite>(locationDark + "girly");
-    public static Sprite daringDarkImg = Resources.Load<Sprite>(locationDark + "daring");
-    public static Sprite schoolDarkImg = Resources.Load<Sprite>(locationDark + "school");
+    /// <summary>
+    /// Gets the images for the light and the dark theme for the cards.
+    /// </summary>
+    /// <param name="dataList">The list that contains all the data.</param>
+    /// <returns>The updated list with the data that contain the images for the light and the dark theme.</returns>
+    public static List<Data> GetImages(List<Data> dataList)
+    {
+        // For each and every data in the dataList...
+        foreach (var data in dataList)
+        {
+            // Adds the card image for the light theme of that category
+            data.LightImage = Resources.Load<Sprite>(locationLight + data.Category);
+            // Adds the card image for the dark theme of that category
+            data.DarkImage = Resources.Load<Sprite>(locationDark + data.Category);
+        }
+        // Returns the now updated dataList
+        return dataList;
+    }
     #endregion
 
-    #region JsonData
-    //------------------- JSON Data -------------------
-    // They are in the form of "{category}Time{language}.json"
-    // So they are 6 because there are 6 categories in every language.
-    // We do not need the files that are in a different language parsed.
-    // For Family Time
-    public static JsonData familyData;
-    // For Sexy Time
-    public static JsonData sexyData;
-    // For Macho Time
-    public static JsonData machoData;
-    // For Girly Time
-    public static JsonData girlyData;
-    // For Daring Time
-    public static JsonData daringData;
-    // For School Time
-    public static JsonData schoolData;
-    #endregion
+   
 }

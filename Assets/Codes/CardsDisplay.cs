@@ -12,8 +12,9 @@ public class CardsDisplay : MonoBehaviour
    
     public void Start()
     {
+        GlobalVariables.GetImages(GlobalVariables.dataList);
         task.text = card.task;
-        cardImage.sprite = GlobalVariables.familyLightImg;
+        cardImage.sprite = GlobalVariables.schoolTime.LightImage;
     }
 
 }   

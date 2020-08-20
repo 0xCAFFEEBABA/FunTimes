@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Newtonsoft.Json.Linq;
 
 public class Countdown : MonoBehaviour
 {
     public TextMeshProUGUI countdown;
     public int count;
     public int total;
-    public Button button;
 
     public void Start()
     {
+        total = TotalCards();
         count = 1;
-        countdown.SetText(count.ToString());
+        countdown.SetText(count.ToString() + "/" + total.ToString());
     }
 
     /// <summary>
@@ -22,21 +23,25 @@ public class Countdown : MonoBehaviour
     /// </summary>
     public void CalculateCountdown()
     {
-        count += 1;
-        Debug.Log(count);
+        count = count + 1;
+        countdown.SetText(count.ToString() + "/" + total.ToString());
+        Debug.Log(TotalCards().ToString());
+
     }
 
-    public void TotalCards()
+    public int TotalCards()
     {
-
+        int length = 0;
+        foreach(Data data in GlobalVariables.dataList)
+        {
+            if (data.JsonData != null)
+            {
+                JArray cards = (JArray)data.JsonData["cards"];
+                length += cards.Count;
+            }
+        }
+        return length;
     }
 
     
-    public void GetCountDown()
-    {
-        Button nextCardBtn = button.GetComponent<Button>();
-        nextCardBtn.onClick.AddListener(CalculateCountdown);
-        countdown.SetText(count.ToString());
-
-    }
 }
