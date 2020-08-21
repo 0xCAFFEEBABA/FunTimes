@@ -94,6 +94,10 @@ public class ChoosingDecks : MonoBehaviour
                 filePath = $"/Codes/Json/{data.Category}Time{language}.json";
                 // Sets the data's JsonData to the data in the accessed json file
                 data.JsonData = AccessFileData(filePath);
+                // Creates an array that contains the elements of the JSON file's array.
+                JArray cards = (JArray)data.JsonData["cards"];
+                // Sets data's length equal the size of the array.
+                data.Length = cards.Count;
             }
         }
     }

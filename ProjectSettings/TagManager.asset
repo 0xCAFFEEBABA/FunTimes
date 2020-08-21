@@ -9,6 +9,12 @@ TagManager:
   - MainMenu
   - SettingsMenu
   - LanguageMenu
+  - familyCard
+  - sexyCard
+  - machoCard
+  - girlyCard
+  - daringCard
+  - schoolCard
   layers:
   - Default
   - TransparentFX

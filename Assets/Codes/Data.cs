@@ -5,9 +5,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Data 
+public class Data
 {
-
     /// <summary>
     /// The name of the category
     /// </summary>

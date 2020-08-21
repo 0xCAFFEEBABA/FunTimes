@@ -7,8 +7,17 @@ using Newtonsoft.Json.Linq;
 
 public class Countdown : MonoBehaviour
 {
+    /// <summary>
+    /// The countdown's UI element in Unity.
+    /// </summary>
     public TextMeshProUGUI countdown;
+    /// <summary>
+    /// Keeps count of the "next card" button's clicks.
+    /// </summary>
     public int count;
+    /// <summary>
+    /// The total number of cards in the selected categories.
+    /// </summary>
     public int total;
 
     public void Start()
@@ -16,6 +25,7 @@ public class Countdown : MonoBehaviour
         total = TotalCards();
         count = 1;
         countdown.SetText(count.ToString() + "/" + total.ToString());
+
     }
 
     /// <summary>
@@ -40,19 +50,14 @@ public class Countdown : MonoBehaviour
         foreach(Data data in GlobalVariables.dataList)
         {
             // If the data is NOT null...
-            if (data.JsonData != null)
+            if (data.ToggleBool == true)
             {
-                // Creates an array that contains the elements of the JSON file's array.
-                JArray cards = (JArray)data.JsonData["cards"];
-                // Sets data's length equal the size of the array.
-                data.Length = cards.Count;
                 // Sets length equal to it's previous value plus the new array's size.
-                length += cards.Count;
+                length += data.Length;
             }
         }
         // Returns the total amount of elements
         return length;
     }
-
     
 }
