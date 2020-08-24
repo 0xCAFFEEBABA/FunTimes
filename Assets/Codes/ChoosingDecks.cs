@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.IO;
 using Newtonsoft.Json.Linq;
+using System.Linq;
 
 public class ChoosingDecks : MonoBehaviour
 {
@@ -22,13 +23,30 @@ public class ChoosingDecks : MonoBehaviour
     /// </summary>
     public void Start()
     {
+      
         GlobalVariables.CreateDataList();
-
+        var gameObject = GameObject.Find("FamilyTimeToggle");
+        familyToggle = gameObject.GetComponent<Toggle>();
         familyToggle.isOn = GlobalVariables.familyTime.ToggleBool;
+
+        gameObject = GameObject.Find("SexyTimeToggle");
+        sexyToggle = gameObject.GetComponent<Toggle>();
         sexyToggle.isOn = GlobalVariables.sexyTime.ToggleBool;
+
+        gameObject = GameObject.Find("MachoTimeToggle");
+        machoToggle = gameObject.GetComponent<Toggle>();
         machoToggle.isOn = GlobalVariables.machoTime.ToggleBool;
+
+        gameObject = GameObject.Find("GirlyTimeToggle");
+        girlyToggle = gameObject.GetComponent<Toggle>();
         girlyToggle.isOn = GlobalVariables.girlyTime.ToggleBool;
+
+        gameObject = GameObject.Find("DaringTimeToggle");
+        daringToggle = gameObject.GetComponent<Toggle>();
         daringToggle.isOn = GlobalVariables.daringTime.ToggleBool;
+
+        gameObject = GameObject.Find("SchoolTimeToggle");
+        schoolToggle = gameObject.GetComponent<Toggle>();
         schoolToggle.isOn = GlobalVariables.schoolTime.ToggleBool;
         
     }

@@ -86,26 +86,29 @@ public static class GlobalVariables
     {
         SetCategories();
         SetToggleBool();
-        // For Family Time
-
-        // Adds the data to the list
-        dataList.Add(familyTime);
-        // For Sexy Time
-        // Adds the data to the list
-        dataList.Add(sexyTime);
-        // For Macho Time
-        // Adds the data to the list
-        dataList.Add(machoTime);
-        // For Girly Time
-        // Adds the data to the list
-        dataList.Add(girlyTime);
-        // For Daring Time
-        // Adds the data to the list
-        dataList.Add(daringTime);
-        // For School Time
-        // Adds the data to the list
-        dataList.Add(schoolTime);
+        if (dataList.Count == 0)
+        {
+            // For Family Time
+            // Adds the data to the list
+            dataList.Add(familyTime);
+            // For Sexy Time
+            // Adds the data to the list
+            dataList.Add(sexyTime);
+            // For Macho Time
+            // Adds the data to the list
+            dataList.Add(machoTime);
+            // For Girly Time
+            // Adds the data to the list
+            dataList.Add(girlyTime);
+            // For Daring Time
+            // Adds the data to the list
+            dataList.Add(daringTime);
+            // For School Time
+            // Adds the data to the list
+            dataList.Add(schoolTime);
+        }
         // Returns the now updated list
+
         return dataList;
     }
     #endregion

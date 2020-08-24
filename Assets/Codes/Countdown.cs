@@ -23,9 +23,14 @@ public class Countdown : MonoBehaviour
     public void Start()
     {
         total = TotalCards();
-        count = 1;
-        countdown.SetText(count.ToString() + "/" + total.ToString());
+        count = 0;
 
+        CalculateCountdown();
+    }
+
+    void TaskOnClick()
+    {
+        Debug.Log("You have clicked the button!");
     }
 
     /// <summary>
@@ -34,7 +39,11 @@ public class Countdown : MonoBehaviour
     public void CalculateCountdown()
     {
         count = count + 1;
-        countdown.SetText(count.ToString() + "/" + total.ToString());
+        foreach (var dataAndPool in GlobalVariables.staticDataAndPools)
+        {
+            var countdown = dataAndPool.Value.gameObject.transform.Find("Countdown").GetComponent<TextMeshProUGUI>();
+            countdown.SetText(count.ToString() + "/" + total.ToString());
+        }
     }
 
     /// <summary>
@@ -47,7 +56,7 @@ public class Countdown : MonoBehaviour
         // By default the length is 0
         int length = 0;
         // For each data in the dataList...
-        foreach(Data data in GlobalVariables.dataList)
+        foreach (Data data in GlobalVariables.dataList)
         {
             // If the data is NOT null...
             if (data.ToggleBool == true)
@@ -59,5 +68,5 @@ public class Countdown : MonoBehaviour
         // Returns the total amount of elements
         return length;
     }
-    
+
 }

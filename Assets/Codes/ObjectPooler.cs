@@ -1,9 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-
 using TMPro;
-
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,6 +27,20 @@ public class ObjectPooler : MonoBehaviour
     public float cardHeight = 985.9826f;
     
     /// <summary>
+    /// Keeps count of the "next card" button's clicks.
+    /// </summary>
+    public int count;
+    /// <summary>
+    /// The total number of cards in the selected categories.
+    /// </summary>
+    public int total;
+
+    /// <summary>
+    /// The countdown's UI element in Unity.
+    /// </summary>
+    public TextMeshProUGUI countdown;
+
+    /// <summary>
     /// For every key value pair in the <see cref="GlobalVariables.staticDataAndPools"/> checks and adds the proper image to its cards
     /// </summary>
     public void Start()
@@ -39,10 +51,8 @@ public class ObjectPooler : MonoBehaviour
             // If the pair's pool's gameObject is NOT null...
             if (dataAndPool.Value.gameObject != null)
             {
-                // Adds a game object to the pool.
-                var cardData = dataAndPool.Value.gameObject.AddComponent<CardData>();
-                // Adds an image to that game object.
-                var cardImage = cardData.gameObject.AddComponent<Image>();
+                // Adds to the specific pool's game object an image.
+                var cardImage = dataAndPool.Value.gameObject.AddComponent<Image>();
                 // For the sprite...
                 // If the player has set the theme to dark...
                 if (PlayerPrefs.GetInt("theme") == 1)
@@ -58,13 +68,18 @@ public class ObjectPooler : MonoBehaviour
                     cardImage.sprite = dataAndPool.Value.card.spriteLight;
                 // For the image's dimensions
                 // Sets a RectTransform for the image.
-                var objectRectTransform = cardImage.transform as RectTransform;
+                var cardsPosition = cardImage.transform as RectTransform;
                 // Creates a new vector with the wanted width and height.
-                objectRectTransform.sizeDelta = new Vector2(cardWidth, cardHeight);
+                cardsPosition.sizeDelta = new Vector2(cardWidth, cardHeight);
 
+                var task = dataAndPool.Value.gameObject.transform.Find("Task").GetComponent<TextMeshProUGUI>();
+                task.text = "blush";
+                
             }
         }
+
     }
+
 
     #region DataAndPools
     /// <summary>

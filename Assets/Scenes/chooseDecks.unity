@@ -342,12 +342,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b4d1fbb6c741784ca7aec4d1a98d041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  familyToggle: {fileID: 1430843024}
-  sexyToggle: {fileID: 162375437}
-  machoToggle: {fileID: 1946192347}
-  girlyToggle: {fileID: 638674389}
-  daringToggle: {fileID: 1690782153}
-  schoolToggle: {fileID: 258447969}
+  familyToggle: {fileID: 0}
+  sexyToggle: {fileID: 0}
+  machoToggle: {fileID: 0}
+  girlyToggle: {fileID: 0}
+  daringToggle: {fileID: 0}
+  schoolToggle: {fileID: 0}
 --- !u!1 &121214658
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,7 +814,7 @@ GameObject:
   - component: {fileID: 162375436}
   - component: {fileID: 162375437}
   m_Layer: 5
-  m_Name: 'SexyTimeToggle '
+  m_Name: SexyTimeToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1205,7 +1205,7 @@ GameObject:
   - component: {fileID: 258447968}
   - component: {fileID: 258447969}
   m_Layer: 5
-  m_Name: 'SchoolTimeToggle '
+  m_Name: SchoolTimeToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1596,7 +1596,7 @@ GameObject:
   - component: {fileID: 436723904}
   - component: {fileID: 436723905}
   m_Layer: 5
-  m_Name: 'MachoTimeToggle '
+  m_Name: MachoTimeToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2019,7 +2019,7 @@ GameObject:
   - component: {fileID: 638674388}
   - component: {fileID: 638674389}
   m_Layer: 5
-  m_Name: 'GirlyTimeToggle '
+  m_Name: GirlyTimeToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2333,7 +2333,7 @@ GameObject:
   - component: {fileID: 753616927}
   - component: {fileID: 753616928}
   m_Layer: 5
-  m_Name: 'DaringTimeToggle '
+  m_Name: DaringTimeToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3501,12 +3501,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b4d1fbb6c741784ca7aec4d1a98d041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  familyToggle: {fileID: 632183922}
-  sexyToggle: {fileID: 1418857064}
-  machoToggle: {fileID: 436723905}
-  girlyToggle: {fileID: 1495734079}
-  daringToggle: {fileID: 753616928}
-  schoolToggle: {fileID: 1511645356}
+  familyToggle: {fileID: 0}
+  sexyToggle: {fileID: 0}
+  machoToggle: {fileID: 0}
+  girlyToggle: {fileID: 0}
+  daringToggle: {fileID: 0}
+  schoolToggle: {fileID: 0}
 --- !u!1 &1150363821
 GameObject:
   m_ObjectHideFlags: 0
@@ -4278,7 +4278,7 @@ GameObject:
   - component: {fileID: 1418857063}
   - component: {fileID: 1418857064}
   m_Layer: 5
-  m_Name: 'SexyTimeToggle '
+  m_Name: SexyTimeToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4685,7 +4685,7 @@ GameObject:
   - component: {fileID: 1495734078}
   - component: {fileID: 1495734079}
   m_Layer: 5
-  m_Name: 'GirlyTimeToggle '
+  m_Name: GirlyTimeToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4770,7 +4770,7 @@ GameObject:
   - component: {fileID: 1511645355}
   - component: {fileID: 1511645356}
   m_Layer: 5
-  m_Name: 'SchoolTimeToggle '
+  m_Name: SchoolTimeToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5367,7 +5367,7 @@ GameObject:
   - component: {fileID: 1690782152}
   - component: {fileID: 1690782153}
   m_Layer: 5
-  m_Name: 'DaringTimeToggle '
+  m_Name: DaringTimeToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6252,7 +6252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1896013426}
-  - component: {fileID: 1896013428}
+  - component: {fileID: 1896013427}
   m_Layer: 5
   m_Name: Themes
   m_TagString: Untagged
@@ -6281,7 +6281,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1896013428
+--- !u!114 &1896013427
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6455,7 +6455,7 @@ GameObject:
   - component: {fileID: 1946192346}
   - component: {fileID: 1946192347}
   m_Layer: 5
-  m_Name: 'MachoTimeToggle '
+  m_Name: MachoTimeToggle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
