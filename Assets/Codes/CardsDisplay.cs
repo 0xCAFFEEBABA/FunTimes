@@ -6,12 +6,6 @@ using TMPro;
 
 public class CardsDisplay : MonoBehaviour
  {
-   /* public TextMeshProUGUI task;
-    public Card card;
-
-    public void Start()
-    {
-       
-    }*/
+   
 
 }   

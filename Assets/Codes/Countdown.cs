@@ -1,9 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using TMPro;
-using Newtonsoft.Json.Linq;
 
 public class Countdown : MonoBehaviour
 {
@@ -20,29 +16,42 @@ public class Countdown : MonoBehaviour
     /// </summary>
     public int total;
 
+    /// <summary>
+    /// Calculates the total number of cards from the selected files and basically begins counting.
+    /// </summary>
     public void Start()
     {
+        // Calculates the number of cards selected.
         total = TotalCards();
+        // Sets count equal to 0.
         count = 0;
-
+        // Begins the countdown.
         CalculateCountdown();
+        
     }
-
-    void TaskOnClick()
-    {
-        Debug.Log("You have clicked the button!");
-    }
-
     /// <summary>
     /// Calculates how many cards have been played by adding 1 every time the player presses the "next card" button
     /// </summary>
     public void CalculateCountdown()
     {
+        // Sets count equal to its previous value plus one.
         count = count + 1;
-        foreach (var dataAndPool in GlobalVariables.staticDataAndPools)
+        foreach (var stringPool in GlobalVariables.staticPoolDictionary)
         {
-            var countdown = dataAndPool.Value.gameObject.transform.Find("Countdown").GetComponent<TextMeshProUGUI>();
-            countdown.SetText(count.ToString() + "/" + total.ToString());
+            var queueArray = stringPool.Value.ToArray();
+            foreach (var dataPoolPair in GlobalVariables.staticDataAndPools)
+            {
+                if (stringPool.Key == dataPoolPair.Key.Category)
+                {
+                    for (int i = 0; i <= dataPoolPair.Key.Length - 1; i++)
+                    {
+                        // Sets countdown equal to the text object assigned for the countdown.
+                        var countdown = queueArray[i].gameObject.transform.Find("Countdown").GetComponent<TextMeshProUGUI>();
+                        // Sets the text equal to the current count's value / the total number of cards selected.
+                        countdown.SetText(count.ToString() + "/" + total.ToString());
+                    }
+                }
+            }
         }
     }
 

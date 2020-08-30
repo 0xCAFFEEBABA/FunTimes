@@ -1,16 +1,37 @@
-﻿using LitJson;
+﻿using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public static class GlobalVariables
 {
+    #region Variables
+    /// <summary>
+    /// A Data type variable
+    /// </summary>
     public static Data familyTime = new Data();
+    /// <summary>
+    /// A Data type variable
+    /// </summary>
     public static Data sexyTime = new Data();
+    /// <summary>
+    /// A Data type variable
+    /// </summary>
     public static Data machoTime = new Data();
+    /// <summary>
+    /// A Data type variable
+    /// </summary>
     public static Data girlyTime = new Data();
+    /// <summary>
+    /// A Data type variable
+    /// </summary>
     public static Data daringTime = new Data();
+    /// <summary>
+    /// A Data type variable
+    /// </summary>
     public static Data schoolTime = new Data();
     /// <summary>
     /// A list with all Data 
@@ -20,7 +41,11 @@ public static class GlobalVariables
     /// A dictionary with key = Data and value = Pool from ObjectPooler class
     /// </summary>
     public static Dictionary<Data, ObjectPooler.Pool> staticDataAndPools = new Dictionary<Data, ObjectPooler.Pool>();
-
+    /// <summary>
+    /// A dictionary that contains a Queue for each category
+    /// </summary>
+    public static Dictionary<string, Queue<GameObject>> staticPoolDictionary = new Dictionary<string, Queue<GameObject>>();
+    #endregion
 
     #region Toggles
     //------------------- Toggles-------------------
@@ -48,7 +73,6 @@ public static class GlobalVariables
         // For School Time
         // Sets the toggle's boolean to false
         schoolTime.ToggleBool = false;
-
     }
     #endregion
 
@@ -84,10 +108,13 @@ public static class GlobalVariables
     /// </summary>
     public static List<Data> CreateDataList()
     {
-        SetCategories();
-        SetToggleBool();
+        // If the dataList is empty... 
         if (dataList.Count == 0)
         {
+            // Sets the default values for the categories.
+            SetCategories();
+            // Sets the default values for the toggles
+            SetToggleBool();
             // For Family Time
             // Adds the data to the list
             dataList.Add(familyTime);
@@ -108,7 +135,6 @@ public static class GlobalVariables
             dataList.Add(schoolTime);
         }
         // Returns the now updated list
-
         return dataList;
     }
     #endregion
@@ -140,5 +166,68 @@ public static class GlobalVariables
     }
     #endregion
 
-   
+    #region JSON
+    /// <summary>
+    /// The entire JSON file as a string.
+    /// </summary>
+    private static string jsonString;
+    /// <summary>
+    /// The JObject form of the JSON file.
+    /// </summary>
+    private static JObject fileData;
+
+    /// <summary>
+    /// Opens and reads an entire JSON file and parses it accordingly.
+    /// In our case to a list of data.
+    /// </summary>
+    /// <param name="filePath"></param>
+    /// <returns></returns>
+    public static JObject AccessFileData(string filePath)
+    {
+        // Sets the string equal to all the contents of the file
+        jsonString = File.ReadAllText(Application.dataPath + filePath);
+        // Sets fileData equal to the according json format of the string
+        fileData = JObject.Parse(jsonString);
+        // Returns the Json data
+        return fileData;
+    }
+    /// <summary>
+    /// Unlocks the appropriate JSON files when the according toggle is on.
+    /// </summary>
+    public static void OpenJsonFiles()
+    {
+        // For each and every data in the dataList...
+        foreach (var data in GlobalVariables.dataList)
+        {
+            string language;
+            string filePath;
+            // For language
+            // If the data's language is English...
+            if (data.Language == LanguageEnum.English)
+                // Sets the string to EN
+                language = "EN";
+            // Else if the data's language is Greek...
+            else if (data.Language == LanguageEnum.Greek)
+                // Sets the string to GR
+                language = "GR";
+            // Else...
+            else
+                // By default language is EN
+                language = "EN";
+            // For the JsonData
+            // If the toggle is active...
+            if (data.ToggleBool == true)
+            {
+                // Sets the file path accordingly in order to access that specific file
+                filePath = $"/Codes/Json/{data.Category}Time{language}.json";
+                // Sets the data's JsonData to the data in the accessed json file
+                data.JsonData = AccessFileData(filePath);
+                // Creates an array that contains the elements of the JSON file's array.
+                JArray cards = (JArray)data.JsonData["cards"];
+                // Sets data's length equal the size of the array.
+                data.Length = cards.Count;
+            }
+        }
+    }
+    #endregion
 }

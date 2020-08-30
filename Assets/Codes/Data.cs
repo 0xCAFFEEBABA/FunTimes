@@ -31,6 +31,10 @@ public class Data
     /// The number of elements inside the JSON file's array
     /// </summary>
     public int Length { get; set; }
+    /// <summary>
+    /// An array that contains all tasks from a specific JSON file
+    /// </summary>
+    public string[] TaskArray { get; set; }
    /// <summary>
    /// The language for the data and game
    /// </summary>
