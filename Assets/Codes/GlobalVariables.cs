@@ -206,6 +206,8 @@ public static class GlobalVariables
             string language;
             string filePath;
             // For language
+            
+            data.Language = Language;
             // If the data's language is English...
             if (data.Language == LanguageEnum.English)
                 // Sets the string to EN

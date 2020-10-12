@@ -322,6 +322,7 @@ public class ObjectPooler : MonoBehaviour
             }
             // Parses the list of tasks to a string array of tasks.
             data.TaskArray = TaskList.ToArray();
+            TaskList = new List<string>();
         }
     }
 
@@ -370,6 +371,7 @@ public class ObjectPooler : MonoBehaviour
                         var cardsPosition = cardImage.transform as RectTransform;
                         // Creates a new vector with the wanted width and height.
                         cardsPosition.sizeDelta = new Vector2(cardWidth, cardHeight);
+                        
                         totalCardsList.Add(queueArray[i]);
                     }
                 }
