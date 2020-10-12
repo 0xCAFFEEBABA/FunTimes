@@ -45,6 +45,10 @@ public static class GlobalVariables
     /// A dictionary that contains a Queue for each category
     /// </summary>
     public static Dictionary<string, Queue<GameObject>> staticPoolDictionary = new Dictionary<string, Queue<GameObject>>();
+    /// <summary>
+    /// The game's language
+    /// </summary>
+    public static LanguageEnum Language;
     #endregion
 
     #region Toggles

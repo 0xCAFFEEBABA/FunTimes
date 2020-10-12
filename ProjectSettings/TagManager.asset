@@ -15,6 +15,12 @@ TagManager:
   - girlyCard
   - daringCard
   - schoolCard
+  - SettingsText
+  - DarkThemeText
+  - LightThemeText
+  - MainMenuTag
+  - PlayButtonText
+  - NextCardText
   layers:
   - Default
   - TransparentFX

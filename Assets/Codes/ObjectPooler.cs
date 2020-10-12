@@ -73,10 +73,65 @@ public class ObjectPooler : MonoBehaviour
     /// A list of all the tasks inside a JSON file.
     /// </summary>
     public List<string> TaskList = new List<string>();
+    //---------- For the Queues ----------
+    /// <summary>
+    /// A list that contains all the active categories' cards.
+    /// </summary>
+    public List<GameObject> totalCardsList = new List<GameObject>();
+    /// <summary>
+    ///  A queue that has all the cards of the selected categories in random order.
+    /// </summary>
+    public Queue<GameObject> randomCardsQueue = new Queue<GameObject>();
     #endregion
 
     /// <summary>
+    /// It's called before the scene is loaded.
+    /// Creates the Pool Objects and adds them to a list
+    /// Gets the images from the Global Variables class
+    /// Sets the <see cref="GlobalVariables.staticDataAndPools"/> to the returned dictionary of the <see cref="CreateDataAndPoolsDictionary"/> method
+    /// </summary>
+    public void Awake()
+    {
+        // Unlocks the appropriate JSON files when the according toggle is on.
+        // In this case it unlocks the family JSON file as it is our default category.
+        GlobalVariables.OpenJsonFiles();
+        // Creates a list of pools
+        CreatePoolList();
+        // Gets the images from the dataList.
+        GlobalVariables.GetImages(GlobalVariables.dataList);
+        // Sets the static dictionary to the returned dictionary of the method.
+        GlobalVariables.staticDataAndPools = CreateDataAndPoolsDictionary();
+
+        // For each and every pool in the pools list...
+        foreach (Pool pool in pools)
+        {
+            foreach (var data in GlobalVariables.dataList)
+                // If the pool is NOT empty...
+                if (pool.category == data.Category
+                    && pool.size > 0
+                    && data.ToggleBool == true)
+                {
+                    pool.gameObject = Resources.FindObjectsOfTypeAll<GameObject>().FirstOrDefault(g => g.CompareTag(pool.category + "Card"));
+
+                    // Creates a new Queue.
+                    Queue<GameObject> objectPool = new Queue<GameObject>();
+                    // For as many times as the pool's size...
+                    for (int i = 0; i <= pool.size - 1; i++)
+                    {
+                        GameObject completeCard = Instantiate(pool.gameObject);
+
+                        completeCard.SetActive(false);
+                        // Puts the game object back to the queue
+                        objectPool.Enqueue(completeCard);
+                    }
+                    GlobalVariables.staticPoolDictionary.Add(pool.category, objectPool);
+                }
+        }
+    }
+
+    /// <summary>
     /// For every key value pair in the <see cref="GlobalVariables.staticDataAndPools"/> checks and adds the proper image to its cards
+    ///  Calculates the total number of cards from the selected files and basically begins counting.
     /// </summary>
     public void Start()
     {
@@ -108,47 +163,21 @@ public class ObjectPooler : MonoBehaviour
                 cardsPosition.sizeDelta = new Vector2(cardWidth, cardHeight);
             }
         }
+        // Calculates the number of cards selected.
+        total = TotalCards();
+        // Sets count equal to 0.
+        count = 0;
+        // Begins the countdown.
+        CalculateCountdown();
+        // For every selected category set the images and tasks accordingly to each queue.
         ForTheQueues();
+        // Puts every active category's cards in a queue in random order
+        CreateRandomQueue();
+        // Dequeues from the random queue each time a card and puts it back again in the queue.
+        SpawnFromRandomQueue();
     }
 
     #region DataAndPools
-
-    /// <summary>
-    /// Creates a dictionary of <see cref="Data"/> and <see cref="Pool"/> that are matched by their category variable.
-    /// Adds the images for dark and light theme's cards to the <see cref="Pool.gameObject"/> accordingly.
-    /// </summary>
-    /// <returns></returns>
-    public Dictionary<Data, Pool> CreateDataAndPoolsDictionary()
-    {
-        // For each and every pool in pools...
-        foreach (Pool pool in pools)
-        {
-            // For each and every data in dataList...
-            foreach (Data data in GlobalVariables.dataList)
-            {
-                // If the data's category matches the pool's category...
-                if (data.Category == pool.category)
-                {
-                    pool.card.category = pool.category;
-                    pool.size = data.Length;
-                    // Adds the data and pool to the dictionary as key and value.
-                    dataAndPools.Add(data, pool);
-                    // Gets out of the loop.
-                    break;
-                }
-            }
-        }
-        // For each and every KeyValuePair in the dictionary...
-        foreach (KeyValuePair<Data, Pool> dataAndPool in dataAndPools)
-        {
-            // Sets the card's sprite of the dark theme to the data's dark themed image
-            dataAndPool.Value.card.spiteDark = dataAndPool.Key.DarkImage;
-            // Sets the card's sprite of the light theme to the data's light themed image
-            dataAndPool.Value.card.spriteLight = dataAndPool.Key.LightImage;
-        }
-        // Returns the updated dictionary
-        return dataAndPools;
-    }
 
     /// <summary>
     /// Creates pools for every category and adds them to a list.
@@ -179,49 +208,87 @@ public class ObjectPooler : MonoBehaviour
     }
 
     /// <summary>
-    /// It's called before the scene is loaded.
-    /// Creates the Pool Objects and adds them to a list
-    /// Gets the images from the Global Variables class
-    /// Sets the <see cref="GlobalVariables.staticDataAndPools"/> to the returned dictionary of the <see cref="CreateDataAndPoolsDictionary"/> method
+    /// Creates a dictionary of <see cref="Data"/> and <see cref="Pool"/> that are matched by their category variable.
+    /// Adds the images for dark and light theme's cards to the <see cref="Pool.gameObject"/> accordingly.
     /// </summary>
-    public void Awake()
+    /// <returns></returns>
+    public Dictionary<Data, Pool> CreateDataAndPoolsDictionary()
     {
-        // Unlocks the appropriate JSON files when the according toggle is on.
-        // In this case it unlocks the family JSON file as it is our default category.
-        GlobalVariables.OpenJsonFiles();
-        // Creates a list of pools
-        CreatePoolList();
-        // Gets the images from the dataList.
-        GlobalVariables.GetImages(GlobalVariables.dataList);
-        // Sets the static dictionary to the returned dictionary of the method.
-        GlobalVariables.staticDataAndPools = CreateDataAndPoolsDictionary();
-        
-        // For each and every pool in the pools list...
-        foreach (Pool pool in pools)
+        // For each and every pool in pools...
+        foreach (var pool in pools)
         {
-            foreach(var data in GlobalVariables.dataList)
-            // If the pool is NOT empty...
-            if (pool.category == data.Category 
-                && pool.size > 0 
-                && data.ToggleBool == true)
+            // For each and every data in dataList...
+            foreach (var data in GlobalVariables.dataList)
             {
-                pool.gameObject = Resources.FindObjectsOfTypeAll<GameObject>().FirstOrDefault(g => g.CompareTag(pool.category + "Card"));
-
-                // Creates a new Queue.
-                Queue<GameObject> objectPool = new Queue<GameObject>();
-                // For as many times as the pool's size...
-                for (int i = 0; i <= pool.size - 1; i++)
+                // If the data's category matches the pool's category...
+                if (data.Category == pool.category)
                 {
-                    GameObject completeCard = Instantiate(pool.gameObject);
-
-                    completeCard.SetActive(false);
-                    // Puts the game object back to the queue
-                    objectPool.Enqueue(completeCard);
+                    pool.card.category = pool.category;
+                    pool.size = data.Length;
+                    // Adds the data and pool to the dictionary as key and value.
+                    dataAndPools.Add(data, pool);
+                    // Gets out of the loop.
+                    break;
                 }
-                GlobalVariables.staticPoolDictionary.Add(pool.category, objectPool);
             }
         }
+        // For each and every KeyValuePair in the dictionary...
+        foreach (var dataAndPool in dataAndPools)
+        {
+            // Sets the card's sprite of the dark theme to the data's dark themed image
+            dataAndPool.Value.card.spiteDark = dataAndPool.Key.DarkImage;
+            // Sets the card's sprite of the light theme to the data's light themed image
+            dataAndPool.Value.card.spriteLight = dataAndPool.Key.LightImage;
+        }
+        // Returns the updated dictionary
+        return dataAndPools;
     }
+
+    /// <summary>
+    /// Creates a random queue from the <see cref="totalCardsList"/> that contains all the cards of the selected categories.
+    /// </summary>
+    public void CreateRandomQueue()
+    {
+        // While the list with all the cards is NOT empty...
+        while (totalCardsList.Count != 0)
+        {
+            // Sets the index to a random integer from 0 to the number of total cards - 1.
+            var index = Random.Range(0, totalCardsList.Count - 1);
+            // Enqueues in the random queue a card that the index is currently pointing at.
+            randomCardsQueue.Enqueue(totalCardsList[index]);
+            // Removes the card that the index is pointing at from the list.
+            totalCardsList.RemoveAt(index);
+        }
+    }
+    /// <summary>
+    /// Spawns a clone of a card by dequeuing it from the random queue and then en queuing it back.
+    /// </summary>
+    public void SpawnFromRandomQueue()
+    {
+        // If the last card has not been displayed...
+        if (count <= total)
+        {
+            // Sets the card's position.
+            var cardPosition = new Vector3(0f, 39f, 0f);
+            // Dequeues a card from the queue that has the cards in random order.
+            var objectToSpawn = randomCardsQueue.Dequeue();
+            // Sets active the dequeued card. 
+            objectToSpawn.SetActive(true);
+            // Sets the parent of the cards to the "themes" gameObject.
+            var parent = GameObject.Find("Themes");
+            // Sets the spawned card as the instance of the card.
+            var spawnedObject = Instantiate(objectToSpawn, cardPosition, Quaternion.identity, parent.transform);
+            // Sets the spawned card's parent to the parent.
+            spawnedObject.transform.SetParent(parent.transform);
+            // Sets the spawned cards position.
+            spawnedObject.transform.localPosition = cardPosition;
+            // Sets the spawned card's scale to 1.
+            spawnedObject.transform.localScale = new Vector3(1f, 1f, 1f);
+            // Enqueues the card that was cloned.
+            randomCardsQueue.Enqueue(objectToSpawn);
+        }
+    }
+
 
     /// <summary>
     /// Creates for every data an array of all the tasks in the according JSON file.
@@ -303,6 +370,7 @@ public class ObjectPooler : MonoBehaviour
                         var cardsPosition = cardImage.transform as RectTransform;
                         // Creates a new vector with the wanted width and height.
                         cardsPosition.sizeDelta = new Vector2(cardWidth, cardHeight);
+                        totalCardsList.Add(queueArray[i]);
                     }
                 }
             }
@@ -311,7 +379,60 @@ public class ObjectPooler : MonoBehaviour
 
     #endregion
 
+    #region Countdown
+    /// <summary>
+    /// Calculates how many cards have been played by adding 1 every time the player presses the "next card" button
+    /// </summary>
+    public void CalculateCountdown()
+    {
+        // Sets count equal to its previous value plus one.
+        count = count + 1;
+        // For each string and pool key value pair in the dictionary... 
+        foreach (var stringPool in GlobalVariables.staticPoolDictionary)
+        {
+            // Parses the pool's queue to an array.
+            var queueArray = stringPool.Value.ToArray();
+            // For each data and pool key value pair in this dictionary...
+            foreach (var dataPoolPair in GlobalVariables.staticDataAndPools)
+            {
+                // If the pool's category is the same as the data's...
+                if (stringPool.Key == dataPoolPair.Key.Category)
+                {
+                    // For as many times as the data's JSON file's number of tasks...
+                    for (int i = 0; i <= dataPoolPair.Key.Length - 1; i++)
+                    {
+                        // Sets countdown equal to the text object assigned for the countdown.
+                        var countdown = queueArray[i].gameObject.transform.Find("Countdown").GetComponent<TextMeshProUGUI>();
+                        // Sets the text equal to the current count's value / the total number of cards selected.
+                        countdown.SetText(count.ToString() + "/" + total.ToString());
+                    }
+                }
+            }
+        }
+    }
 
+    /// <summary>
+    /// Calculates the number of elements in every JSON file's array and adds them.
+    /// Also sets for every data their length equal to length.
+    /// </summary>
+    /// <returns>The total number of tasks from the selected categories</returns>
+    public int TotalCards()
+    {
+        // By default the length is 0
+        int length = 0;
+        // For each data in the dataList...
+        foreach (Data data in GlobalVariables.dataList)
+        {
+            // If the data is NOT null...
+            if (data.ToggleBool == true)
+            {
+                // Sets length equal to it's previous value plus the new array's size.
+                length += data.Length;
+            }
+        }
+        // Returns the total amount of elements
+        return length;
+    }
+    #endregion
 
-    
 }

@@ -512,7 +512,7 @@ GameObject:
   - component: {fileID: 145674574}
   m_Layer: 5
   m_Name: mainMenuButtonText
-  m_TagString: Untagged
+  m_TagString: MainMenuTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -558,7 +558,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: main menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
   m_sharedMaterial: {fileID: 8817607445188083944, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -641,7 +641,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &145674575
@@ -1292,7 +1292,7 @@ GameObject:
   - component: {fileID: 411816252}
   m_Layer: 5
   m_Name: sexyTimeText
-  m_TagString: Untagged
+  m_TagString: sexyCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1338,7 +1338,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: sexy time
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
   m_sharedMaterial: {fileID: 8817607445188083944, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1421,7 +1421,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &411816253
@@ -1445,7 +1445,7 @@ GameObject:
   - component: {fileID: 420217282}
   m_Layer: 5
   m_Name: PlayButtonText
-  m_TagString: Untagged
+  m_TagString: PlayButtonText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1491,8 +1491,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
-  m_sharedMaterial: {fileID: 8817607445188083944, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
+  m_sharedMaterial: {fileID: 1089669839789981279, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2106,7 +2106,7 @@ GameObject:
   - component: {fileID: 656221181}
   m_Layer: 5
   m_Name: familyTimeText
-  m_TagString: Untagged
+  m_TagString: familyCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2152,8 +2152,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: family time
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
-  m_sharedMaterial: {fileID: 8817607445188083944, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
+  m_sharedMaterial: {fileID: 1089669839789981279, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2627,7 +2627,7 @@ GameObject:
   - component: {fileID: 929641199}
   m_Layer: 5
   m_Name: schoolTimeText
-  m_TagString: Untagged
+  m_TagString: schoolCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2673,8 +2673,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: school time
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
-  m_sharedMaterial: {fileID: 8817607445188083944, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
+  m_sharedMaterial: {fileID: 1089669839789981279, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3007,7 +3007,7 @@ GameObject:
   - component: {fileID: 1028162809}
   m_Layer: 5
   m_Name: schoolTimeText
-  m_TagString: Untagged
+  m_TagString: schoolCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3053,7 +3053,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: school time
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
   m_sharedMaterial: {fileID: 8817607445188083944, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3136,7 +3136,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1028162810
@@ -3292,7 +3292,7 @@ GameObject:
   - component: {fileID: 1056319681}
   m_Layer: 5
   m_Name: machoTimeText
-  m_TagString: Untagged
+  m_TagString: machoCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3338,7 +3338,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: macho time
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
   m_sharedMaterial: {fileID: 8817607445188083944, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3421,7 +3421,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1056319682
@@ -3520,7 +3520,7 @@ GameObject:
   - component: {fileID: 1150363823}
   m_Layer: 5
   m_Name: daringTimeText
-  m_TagString: Untagged
+  m_TagString: daringCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3566,7 +3566,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: daring  time
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
   m_sharedMaterial: {fileID: 8817607445188083944, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3649,7 +3649,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1150363824
@@ -4051,7 +4051,7 @@ GameObject:
   - component: {fileID: 1321885049}
   m_Layer: 5
   m_Name: machoTimeText
-  m_TagString: Untagged
+  m_TagString: machoCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4097,8 +4097,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: macho time
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
-  m_sharedMaterial: {fileID: 8817607445188083944, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
+  m_sharedMaterial: {fileID: 1089669839789981279, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4450,7 +4450,7 @@ GameObject:
   - component: {fileID: 1466919723}
   m_Layer: 5
   m_Name: 'girlyTimeText '
-  m_TagString: Untagged
+  m_TagString: girlyCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4496,8 +4496,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: girly time
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
-  m_sharedMaterial: {fileID: 8817607445188083944, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
+  m_sharedMaterial: {fileID: 1089669839789981279, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4857,7 +4857,7 @@ GameObject:
   - component: {fileID: 1567199516}
   m_Layer: 5
   m_Name: mainMenuButtonText
-  m_TagString: Untagged
+  m_TagString: MainMenuTag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4903,8 +4903,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: main menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
-  m_sharedMaterial: {fileID: 8817607445188083944, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
+  m_sharedMaterial: {fileID: 1089669839789981279, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5454,7 +5454,7 @@ GameObject:
   - component: {fileID: 1700028736}
   m_Layer: 5
   m_Name: 'girlyTimeText '
-  m_TagString: Untagged
+  m_TagString: girlyCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5500,7 +5500,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: girly time
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
   m_sharedMaterial: {fileID: 8817607445188083944, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5583,7 +5583,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1700028737
@@ -5607,7 +5607,7 @@ GameObject:
   - component: {fileID: 1755122135}
   m_Layer: 5
   m_Name: sexyTimeText
-  m_TagString: Untagged
+  m_TagString: sexyCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5653,8 +5653,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: sexy time
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
-  m_sharedMaterial: {fileID: 8817607445188083944, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
+  m_sharedMaterial: {fileID: 1089669839789981279, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5760,7 +5760,7 @@ GameObject:
   - component: {fileID: 1811652936}
   m_Layer: 5
   m_Name: PlayButtonText
-  m_TagString: Untagged
+  m_TagString: PlayButtonText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5806,7 +5806,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
   m_sharedMaterial: {fileID: 8817607445188083944, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -5889,7 +5889,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1811652937
@@ -5913,7 +5913,7 @@ GameObject:
   - component: {fileID: 1813981386}
   m_Layer: 5
   m_Name: daringTimeText
-  m_TagString: Untagged
+  m_TagString: daringCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5959,8 +5959,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: daring  time
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
-  m_sharedMaterial: {fileID: 8817607445188083944, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
+  m_sharedMaterial: {fileID: 1089669839789981279, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6103,7 +6103,7 @@ GameObject:
   - component: {fileID: 1868115364}
   m_Layer: 5
   m_Name: familyTimeText
-  m_TagString: Untagged
+  m_TagString: familyCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6149,7 +6149,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: family time
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8506e3d6e12072d49812bf1fca702ceb, type: 2}
   m_sharedMaterial: {fileID: 8817607445188083944, guid: ceaa25c300c4de644a050d7add2170e2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6232,7 +6232,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1868115365
@@ -6253,6 +6253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1896013426}
   - component: {fileID: 1896013427}
+  - component: {fileID: 1896013428}
   m_Layer: 5
   m_Name: Themes
   m_TagString: Untagged
@@ -6293,6 +6294,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aceb439fe986c2a4986cd8f3001f78b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1896013428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896013425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b6f562f7122a84bae8650ba2768eda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainMenu: {fileID: 1567199516}
+  Play: {fileID: 420217282}
+  FamilyCard: {fileID: 656221181}
+  SexyCard: {fileID: 1755122135}
+  MachoCard: {fileID: 1321885049}
+  GirlyCard: {fileID: 1466919723}
+  DaringCard: {fileID: 1813981386}
+  SchoolCard: {fileID: 929641199}
+  language:
+  - lang: Greek
+    Settings: "\u03A1\u03C5\u03B8\u03BC\u03AF\u03C3\u03B5\u03B9\u03C2"
+    LightTheme: "\u0391\u03BD\u03BF\u03B9\u03C7\u03C4\u03CC \u03B8\u03AD\u03BC\u03B1"
+    DarkTheme: "\u03A3\u03BA\u03BF\u03CD\u03C1\u03BF \u03B8\u03AD\u03BC\u03B1"
+    MainMenu: "\u039C\u03B5\u03BD\u03BF\u03C5"
+    Play: "\u03C0\u03B1\u03AF\u03BE\u03B5"
+    NextCard: "\u03B5\u03C0\u03CC\u03BC\u03B5\u03BD\u03B7 \u03BA\u03AC\u03C1\u03C4\u03B1"
+    FamilyCard: "\u03BF\u03B9\u03BA\u03BF\u03B3\u03B5\u03BD\u03B5\u03B9\u03B1\u03BA\u03AD\u03C2
+      \u03B9\u03C3\u03C4\u03BF\u03C1\u03AF\u03B5\u03C2"
+    SexyCard: "\u03B1\u03C0\u03B1\u03B3\u03BF\u03C1\u03B5\u03C5\u03BC\u03AD\u03BD\u03B5\u03C2
+      \u03B9\u03C3\u03C4\u03BF\u03C1\u03AF\u03B5\u03C2"
+    MachoCard: "\u03BA\u03AC\u03C6\u03C1\u03B9\u03BA\u03B5\u03C2 \u03C3\u03C4\u03B9\u03B3\u03BC\u03AD\u03C2"
+    GirlyCard: "\u03B3\u03C5\u03BD\u03B1\u03B9\u03BA\u03B5\u03AF\u03B5\u03C2 \u03C3\u03C4\u03B9\u03B3\u03BC\u03AD\u03C2"
+    DaringCard: "\u03C4\u03BF\u03BB\u03BC\u03B7\u03C1\u03AD\u03C2 \u03C3\u03C4\u03B9\u03B3\u03BC\u03AD\u03C2"
+    SchoolCard: "\u03C3\u03C7\u03BF\u03BB\u03B9\u03BA\u03AD\u03C2 \u03C3\u03C4\u03B9\u03B3\u03BC\u03AD\u03C2"
+  - lang: English
+    Settings: Settings
+    LightTheme: Light Time
+    DarkTheme: Dark Time
+    MainMenu: main menu
+    Play: play
+    NextCard: next card
+    FamilyCard: family time
+    SexyCard: sexy time
+    MachoCard: macho time
+    GirlyCard: girly time
+    DaringCard: daring time
+    SchoolCard: school time
 --- !u!1 &1916835534
 GameObject:
   m_ObjectHideFlags: 0
