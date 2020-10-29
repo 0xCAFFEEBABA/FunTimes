@@ -5,16 +5,16 @@ public class NavigateScenes : MonoBehaviour
 {
     public void Play()
     {
-        SceneManager.LoadScene("cardGame");
+        SceneManager.LoadScene(StringsAndConsants.cardGameScene);
     }
 
     public void ChooseDecks()
     {
-        SceneManager.LoadScene("chooseDecks");
+        SceneManager.LoadScene(StringsAndConsants.chooseDecksScene);
     }
 
     public void MainMenu()
     {
-        SceneManager.LoadScene("mainMenu");
+        SceneManager.LoadScene(StringsAndConsants.mainMenuScene);
     }
 }

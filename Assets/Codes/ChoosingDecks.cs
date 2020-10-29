@@ -12,34 +12,39 @@ public class ChoosingDecks : MonoBehaviour
     public Toggle daringToggle;
     public Toggle schoolToggle;
 
-
     /// <summary>
     /// Sets the toggles active or not according to the bool that are stored in the "Global Variables" class...
     /// So that when going back and forth in between scenes the values are kept the same.
     /// </summary>
     public void Start()
     {
-        var gameObject = GameObject.Find("FamilyTimeToggle");
+        // Finds family toggle and checks if it's on
+        var gameObject = GameObject.Find(StringsAndConsants.familyToggleTag);
         familyToggle = gameObject.GetComponent<Toggle>();
         familyToggle.isOn = GlobalVariables.familyTime.ToggleBool;
 
-        gameObject = GameObject.Find("SexyTimeToggle");
+        // Finds sexy toggle and checks if it's on
+        gameObject = GameObject.Find(StringsAndConsants.sexyToggleTag);
         sexyToggle = gameObject.GetComponent<Toggle>();
         sexyToggle.isOn = GlobalVariables.sexyTime.ToggleBool;
 
-        gameObject = GameObject.Find("MachoTimeToggle");
+        // Finds macho toggle and checks if it's on
+        gameObject = GameObject.Find(StringsAndConsants.machoToggleTag);
         machoToggle = gameObject.GetComponent<Toggle>();
         machoToggle.isOn = GlobalVariables.machoTime.ToggleBool;
 
-        gameObject = GameObject.Find("GirlyTimeToggle");
+        // Finds girly toggle and checks if it's on
+        gameObject = GameObject.Find(StringsAndConsants.girlyToggleTag);
         girlyToggle = gameObject.GetComponent<Toggle>();
         girlyToggle.isOn = GlobalVariables.girlyTime.ToggleBool;
 
-        gameObject = GameObject.Find("DaringTimeToggle");
+        // Finds daring toggle and checks if it's on
+        gameObject = GameObject.Find(StringsAndConsants.daringToggleTag);
         daringToggle = gameObject.GetComponent<Toggle>();
         daringToggle.isOn = GlobalVariables.daringTime.ToggleBool;
 
-        gameObject = GameObject.Find("SchoolTimeToggle");
+        // Finds school toggle and checks if it's on
+        gameObject = GameObject.Find(StringsAndConsants.schoolToggleTag);
         schoolToggle = gameObject.GetComponent<Toggle>();
         schoolToggle.isOn = GlobalVariables.schoolTime.ToggleBool;
         
@@ -51,6 +56,7 @@ public class ChoosingDecks : MonoBehaviour
     /// </summary>
     public void OnDestroy()
     {
+        // Sets each toggle's boolean in the global variables class equal to the toggle's booleans in the scene 
         GlobalVariables.familyTime.ToggleBool = familyToggle.isOn;
         GlobalVariables.sexyTime.ToggleBool = sexyToggle.isOn;
         GlobalVariables.machoTime.ToggleBool = machoToggle.isOn;

@@ -20,7 +20,7 @@ public class ObjectPooler : MonoBehaviour
         /// <summary>
         ///  A String for the category.
         /// </summary>
-        public string category;
+        public CategoryEnum category;
         /// <summary>
         /// A GameObject for the image.
         /// </summary>
@@ -33,15 +33,15 @@ public class ObjectPooler : MonoBehaviour
     #endregion
 
     #region Variables
-    //---------- For Card's Dimensions ----------
+    //---------- For Text Color ----------
     /// <summary>
-    /// The default width of every card.
+    /// The text color when the light theme is active
     /// </summary>
-    public float cardWidth = 598.4164f;
+    public Color darkCardTextColor;
     /// <summary>
-    /// The default height of every card.
+    /// The text color when the dark theme is active
     /// </summary>
-    public float cardHeight = 985.9826f;
+    public Color lightCardTextColor;
     //---------- For Countdown ----------
     /// <summary>
     /// Keeps count of the "next card" button's clicks.
@@ -60,16 +60,7 @@ public class ObjectPooler : MonoBehaviour
     /// A list that contains all Pool objects
     /// </summary>
     public List<Pool> pools = new List<Pool>();
-    /// <summary>
-    /// A dictionary for pools with key = string and value = queue
-    /// </summary>
-    public Dictionary<string, Queue<GameObject>> poolDictionary;
-    /// <summary>
-    /// A dictionary of key = Data and value = Pool 
-    /// It matches {category}Pool <see cref="Pool"/> to {category}Time <see cref="Data"/> 
-    /// </summary>
-    public Dictionary<Data, Pool> dataAndPools = new Dictionary<Data, Pool>();
-    /// <summary>
+   /// <summary>
     /// A list of all the tasks inside a JSON file.
     /// </summary>
     public List<string> TaskList = new List<string>();
@@ -88,20 +79,23 @@ public class ObjectPooler : MonoBehaviour
     /// It's called before the scene is loaded.
     /// Creates the Pool Objects and adds them to a list
     /// Gets the images from the Global Variables class
-    /// Sets the <see cref="GlobalVariables.staticDataAndPools"/> to the returned dictionary of the <see cref="CreateDataAndPoolsDictionary"/> method
+    /// Sets the <see cref="GlobalVariables.dataAndPools"/> to the returned dictionary of the <see cref="CreateDataAndPoolsDictionary"/> method
     /// </summary>
     public void Awake()
     {
         // Unlocks the appropriate JSON files when the according toggle is on.
         // In this case it unlocks the family JSON file as it is our default category.
         GlobalVariables.OpenJsonFiles();
+        // Every time when opening the game scene the pool dictionary and the data and pools dictionary too,
+        // must be empty so that there are no conflicts with previous game plays.
+        GlobalVariables.poolDictionary = new Dictionary<CategoryEnum, Queue<GameObject>>();
+        GlobalVariables.dataAndPools = new Dictionary<Data, Pool>();
         // Creates a list of pools
         CreatePoolList();
         // Gets the images from the dataList.
         GlobalVariables.GetImages(GlobalVariables.dataList);
-        // Sets the static dictionary to the returned dictionary of the method.
-        GlobalVariables.staticDataAndPools = CreateDataAndPoolsDictionary();
-
+        // Fills the dataAndPoolsDictionary.
+        CreateDataAndPoolsDictionary();
         // For each and every pool in the pools list...
         foreach (Pool pool in pools)
         {
@@ -114,29 +108,29 @@ public class ObjectPooler : MonoBehaviour
                     pool.gameObject = Resources.FindObjectsOfTypeAll<GameObject>().FirstOrDefault(g => g.CompareTag(pool.category + "Card"));
 
                     // Creates a new Queue.
-                    Queue<GameObject> objectPool = new Queue<GameObject>();
+                    var objectPool = new Queue<GameObject>();
                     // For as many times as the pool's size...
-                    for (int i = 0; i <= pool.size - 1; i++)
+                    for (var i = 0; i <= pool.size - 1; i++)
                     {
-                        GameObject completeCard = Instantiate(pool.gameObject);
+                        var completeCard = Instantiate(pool.gameObject);
 
                         completeCard.SetActive(false);
                         // Puts the game object back to the queue
                         objectPool.Enqueue(completeCard);
                     }
-                    GlobalVariables.staticPoolDictionary.Add(pool.category, objectPool);
+                    GlobalVariables.poolDictionary.Add(pool.category, objectPool);
                 }
         }
     }
 
     /// <summary>
-    /// For every key value pair in the <see cref="GlobalVariables.staticDataAndPools"/> checks and adds the proper image to its cards
-    ///  Calculates the total number of cards from the selected files and basically begins counting.
+    /// For every key value pair in the <see cref="GlobalVariables.dataAndPools"/> checks and adds the proper image to its cards
+    /// Calculates the total number of cards from the selected files and basically begins counting.
     /// </summary>
     public void Start()
     {
         // For each and every key value pair in the dictionary...
-        foreach (var dataAndPool in GlobalVariables.staticDataAndPools)
+        foreach (var dataAndPool in GlobalVariables.dataAndPools)
         {
             // If the pair's pool's gameObject is NOT null...
             if (dataAndPool.Value.gameObject != null)
@@ -145,11 +139,11 @@ public class ObjectPooler : MonoBehaviour
                 var cardImage = dataAndPool.Value.gameObject.AddComponent<Image>();
                 // For the sprite...
                 // If the player has set the theme to dark...
-                if (PlayerPrefs.GetInt("theme") == 1)
+                if (GlobalVariables.Theme == ThemeEnum.DarkTheme)
                     // Sets the image's sprite to the dark image of the card in the pool.
                     cardImage.sprite = dataAndPool.Value.card.spiteDark;
                 // If the player has set the theme to light...
-                else if (PlayerPrefs.GetInt("theme") == 0)
+                else if (GlobalVariables.Theme == ThemeEnum.LightTheme)
                     // Sets the image's sprite to the light image of the card in the pool.
                     cardImage.sprite = dataAndPool.Value.card.spriteLight;
                 // Else...
@@ -160,23 +154,23 @@ public class ObjectPooler : MonoBehaviour
                 // Sets a RectTransform for the image.
                 var cardsPosition = cardImage.transform as RectTransform;
                 // Creates a new vector with the wanted width and height.
-                cardsPosition.sizeDelta = new Vector2(cardWidth, cardHeight);
+                cardsPosition.sizeDelta = new Vector2(StringsAndConsants.cardWidth, StringsAndConsants.cardHeight);
             }
         }
         // Calculates the number of cards selected.
         total = TotalCards();
         // Sets count equal to 0.
         count = 0;
-        // Begins the countdown.
-        CalculateCountdown();
         // For every selected category set the images and tasks accordingly to each queue.
         ForTheQueues();
         // Puts every active category's cards in a queue in random order
         CreateRandomQueue();
+        // Begins the countdown.
+        CalculateCountdown();
         // Dequeues from the random queue each time a card and puts it back again in the queue.
         SpawnFromRandomQueue();
     }
-
+    
     #region DataAndPools
 
     /// <summary>
@@ -186,17 +180,17 @@ public class ObjectPooler : MonoBehaviour
     {
         // Creates the Pool Object...
         // for Family
-        Pool familyPool = new Pool() { category = "family", card = ScriptableObject.CreateInstance<Card>() };
+        Pool familyPool = new Pool() { category = CategoryEnum.family, card = ScriptableObject.CreateInstance<Card>() };
         // for Sexy
-        Pool sexyPool = new Pool() { category = "sexy", card = ScriptableObject.CreateInstance<Card>() };
+        Pool sexyPool = new Pool() { category = CategoryEnum.sexy, card = ScriptableObject.CreateInstance<Card>() };
         // for Macho
-        Pool machoPool = new Pool() { category = "macho", card = ScriptableObject.CreateInstance<Card>() };
+        Pool machoPool = new Pool() { category = CategoryEnum.macho, card = ScriptableObject.CreateInstance<Card>() };
         // for Girly
-        Pool girlyPool = new Pool() { category = "girly", card = ScriptableObject.CreateInstance<Card>() };
+        Pool girlyPool = new Pool() { category = CategoryEnum.girly, card = ScriptableObject.CreateInstance<Card>() };
         // for Daring
-        Pool daringPool = new Pool() { category = "daring", card = ScriptableObject.CreateInstance<Card>() };
+        Pool daringPool = new Pool() { category = CategoryEnum.daring, card = ScriptableObject.CreateInstance<Card>() };
         // for School
-        Pool schoolPool = new Pool() { category = "school", card = ScriptableObject.CreateInstance<Card>() };
+        Pool schoolPool = new Pool() { category = CategoryEnum.school, card = ScriptableObject.CreateInstance<Card>() };
 
         // Adds all Pool objects to a List.
         pools.Add(familyPool);
@@ -212,7 +206,7 @@ public class ObjectPooler : MonoBehaviour
     /// Adds the images for dark and light theme's cards to the <see cref="Pool.gameObject"/> accordingly.
     /// </summary>
     /// <returns></returns>
-    public Dictionary<Data, Pool> CreateDataAndPoolsDictionary()
+    public void CreateDataAndPoolsDictionary()
     {
         // For each and every pool in pools...
         foreach (var pool in pools)
@@ -226,22 +220,20 @@ public class ObjectPooler : MonoBehaviour
                     pool.card.category = pool.category;
                     pool.size = data.Length;
                     // Adds the data and pool to the dictionary as key and value.
-                    dataAndPools.Add(data, pool);
+                    GlobalVariables.dataAndPools.Add(data, pool);
                     // Gets out of the loop.
                     break;
                 }
             }
         }
         // For each and every KeyValuePair in the dictionary...
-        foreach (var dataAndPool in dataAndPools)
+        foreach (var dataAndPool in GlobalVariables.dataAndPools)
         {
             // Sets the card's sprite of the dark theme to the data's dark themed image
             dataAndPool.Value.card.spiteDark = dataAndPool.Key.DarkImage;
             // Sets the card's sprite of the light theme to the data's light themed image
             dataAndPool.Value.card.spriteLight = dataAndPool.Key.LightImage;
         }
-        // Returns the updated dictionary
-        return dataAndPools;
     }
 
     /// <summary>
@@ -289,7 +281,6 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
-
     /// <summary>
     /// Creates for every data an array of all the tasks in the according JSON file.
     /// </summary>
@@ -334,12 +325,12 @@ public class ObjectPooler : MonoBehaviour
         // Creates an array of tasks for active categories.
         CreateTaskArray();
         // For each and every key value pair in the dictionary of strings and pools...
-        foreach (var stringQueuePair in GlobalVariables.staticPoolDictionary)
+        foreach (var stringQueuePair in GlobalVariables.poolDictionary)
         {
             // Parses the queue to an array.
             var queueArray = stringQueuePair.Value.ToArray();
             // For each and every key value pair in the dictionary of data and pools...
-            foreach (var dataPoolPair in GlobalVariables.staticDataAndPools)
+            foreach (var dataPoolPair in GlobalVariables.dataAndPools)
             {
                 // If the stringQueuePair's string is equal to the dataPoolPair's Data's Category...
                 if (stringQueuePair.Key == dataPoolPair.Key.Category)
@@ -353,32 +344,49 @@ public class ObjectPooler : MonoBehaviour
                         task.text = dataPoolPair.Key.TaskArray[i];
                         // Adds to the specific pool's game object an image.
                         var cardImage = queueArray[i].gameObject.AddComponent<Image>();
-                        // For the sprite...
+                        // For the sprite and text color...
                         // If the player has set the theme to dark...
-                        if (PlayerPrefs.GetInt("theme") == 1)
+                        if (GlobalVariables.Theme == ThemeEnum.DarkTheme)
+                        {
                             // Sets the image's sprite to the dark image of the card in the pool.
                             cardImage.sprite = dataPoolPair.Value.card.spiteDark;
+                            // If the string is a color...
+                            if (ColorUtility.TryParseHtmlString("#292F36", out lightCardTextColor))
+                                // Sets the task to that color, which in this case is the dark one.
+                                task.color = lightCardTextColor;
+                        }
                         // If the player has set the theme to light...
-                        else if (PlayerPrefs.GetInt("theme") == 0)
+                        else if (GlobalVariables.Theme == ThemeEnum.LightTheme)
+                        {
                             // Sets the image's sprite to the light image of the card in the pool.
                             cardImage.sprite = dataPoolPair.Value.card.spriteLight;
+                            // If the string is a color...
+                            if (ColorUtility.TryParseHtmlString("#F1EEE0", out darkCardTextColor))
+                                // Sets the task to that color, which in this case is the light one.
+                                task.color = darkCardTextColor;
+                        }
                         // Else...
                         else
+                        {
                             // By default sets the image's sprite to the light image of the card in the pool.
                             cardImage.sprite = dataPoolPair.Value.card.spriteLight;
+                            // If the string is a color...
+                            if (ColorUtility.TryParseHtmlString("#F1EEE0", out darkCardTextColor))
+                                // Sets the task to that color, which in this case is the light one.
+                                task.color = darkCardTextColor;
+                        }
                         // For the image's dimensions
                         // Sets a RectTransform for the image.
                         var cardsPosition = cardImage.transform as RectTransform;
                         // Creates a new vector with the wanted width and height.
-                        cardsPosition.sizeDelta = new Vector2(cardWidth, cardHeight);
-                        
+                        cardsPosition.sizeDelta = new Vector2(StringsAndConsants.cardWidth, StringsAndConsants.cardHeight);
+                        // Adds the card to a list that contains every card.
                         totalCardsList.Add(queueArray[i]);
                     }
                 }
             }
         }
     }
-
     #endregion
 
     #region Countdown
@@ -389,26 +397,35 @@ public class ObjectPooler : MonoBehaviour
     {
         // Sets count equal to its previous value plus one.
         count = count + 1;
-        // For each string and pool key value pair in the dictionary... 
-        foreach (var stringPool in GlobalVariables.staticPoolDictionary)
+        foreach(var card in randomCardsQueue)
         {
-            // Parses the pool's queue to an array.
-            var queueArray = stringPool.Value.ToArray();
-            // For each data and pool key value pair in this dictionary...
-            foreach (var dataPoolPair in GlobalVariables.staticDataAndPools)
+            // Sets countdown equal to the text object assigned for the countdown.
+            var countdown = card.gameObject.transform.Find("Countdown").GetComponent<TextMeshProUGUI>();
+            // Sets the text equal to the current count's value / the total number of cards selected.
+            countdown.SetText(count.ToString() + "/" + total.ToString());
+            // If the player has set the theme to dark...
+            if (GlobalVariables.Theme == ThemeEnum.DarkTheme)
             {
-                // If the pool's category is the same as the data's...
-                if (stringPool.Key == dataPoolPair.Key.Category)
-                {
-                    // For as many times as the data's JSON file's number of tasks...
-                    for (int i = 0; i <= dataPoolPair.Key.Length - 1; i++)
-                    {
-                        // Sets countdown equal to the text object assigned for the countdown.
-                        var countdown = queueArray[i].gameObject.transform.Find("Countdown").GetComponent<TextMeshProUGUI>();
-                        // Sets the text equal to the current count's value / the total number of cards selected.
-                        countdown.SetText(count.ToString() + "/" + total.ToString());
-                    }
-                }
+                // If the string is a color...
+                if (ColorUtility.TryParseHtmlString("#292F36", out lightCardTextColor))
+                    // Sets the task to that color, which in this case is the dark one.
+                    countdown.color = lightCardTextColor;
+            }
+            // If the player has set the theme to light...
+            else if (GlobalVariables.Theme == ThemeEnum.LightTheme)
+            {
+                // If the string is a color...
+                if (ColorUtility.TryParseHtmlString("#F1EEE0", out darkCardTextColor))
+                    // Sets the task to that color, which in this case is the light one.
+                    countdown.color = darkCardTextColor;
+            }
+            // Else...
+            else
+            {
+                // By default sets the light theme's countdown active 
+                if (ColorUtility.TryParseHtmlString("#F1EEE0", out darkCardTextColor))
+                    // Sets the task to that color, which in this case is the light one.
+                    countdown.color = darkCardTextColor;
             }
         }
     }
@@ -421,9 +438,9 @@ public class ObjectPooler : MonoBehaviour
     public int TotalCards()
     {
         // By default the length is 0
-        int length = 0;
+        var length = 0;
         // For each data in the dataList...
-        foreach (Data data in GlobalVariables.dataList)
+        foreach (var data in GlobalVariables.dataList)
         {
             // If the data is NOT null...
             if (data.ToggleBool == true)

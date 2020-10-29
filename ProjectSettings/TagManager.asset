@@ -20,7 +20,9 @@ TagManager:
   - LightThemeText
   - MainMenuTag
   - PlayButtonText
-  - NextCardText
+  - NextButton
+  - PlayButton
+  - MainMenuButton
   layers:
   - Default
   - TransparentFX

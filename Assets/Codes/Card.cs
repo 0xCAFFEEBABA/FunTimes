@@ -12,7 +12,7 @@ public class Card : ScriptableObject
     public string task;
     public Sprite spriteLight;
     public Sprite spiteDark;
-    public string category;
+    public CategoryEnum category;
 
    
 }

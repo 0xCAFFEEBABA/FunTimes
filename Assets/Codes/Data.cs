@@ -1,16 +1,13 @@
-﻿using LitJson;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Data
 {
     /// <summary>
     /// The name of the category
     /// </summary>
-    public string Category { get; set; }
+    public CategoryEnum Category { get; set; }
     /// <summary>
     /// A boolean value for whether the toggle is on or not
     /// </summary>
@@ -39,8 +36,4 @@ public class Data
    /// The language for the data and game
    /// </summary>
     public LanguageEnum Language { get; set; }
-   
-
-
-
 }

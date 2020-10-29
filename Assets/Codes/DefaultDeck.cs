@@ -13,7 +13,6 @@ public class DefaultDeck : MonoBehaviour
         // *This happens only at the start of the game where the default values are set. 
         // Every other time the "mainMenu" scene is visited the values are the ones set by the user in the "chooseDecks" scene*
         GlobalVariables.CreateDataList();
-        GlobalVariables.staticPoolDictionary = new Dictionary<string, Queue<GameObject>>();
     }
 
 }

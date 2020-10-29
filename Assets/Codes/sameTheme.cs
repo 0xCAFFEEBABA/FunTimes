@@ -12,12 +12,8 @@ public class SameTheme : MonoBehaviour
         // Finds the gameObject that represents the light theme
         var lightTheme = Resources.FindObjectsOfTypeAll<GameObject>().FirstOrDefault(g => g.CompareTag("LightTheme"));
 
-        // Loads the theme data from PlayerPrefs
-        // If there is no value set for theme the default is 0 ( light theme ).
-        var themeInt = PlayerPrefs.GetInt("theme", 0);
-       // Debug.Log(themeInt);
-        // If theme is 0...
-        if (themeInt == 0)
+        // If light them is active in the mainMenu scene...
+        if (GlobalVariables.Theme == ThemeEnum.LightTheme)
         {
             // Activates the Light Theme...
             lightTheme.SetActive(true);

@@ -1,14 +1,19 @@
 ﻿using Newtonsoft.Json.Linq;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 public static class GlobalVariables
 {
     #region Variables
+    /// <summary>
+    /// The game's theme
+    /// </summary>
+    public static ThemeEnum Theme;
+    /// <summary>
+    /// The game's language
+    /// </summary>
+    public static LanguageEnum Language;
     /// <summary>
     /// A Data type variable
     /// </summary>
@@ -39,16 +44,14 @@ public static class GlobalVariables
     public static List<Data> dataList = new List<Data>();
     /// <summary>
     /// A dictionary with key = Data and value = Pool from ObjectPooler class
+    /// It matches {category}Pool <see cref="Pool"/> to {category}Time <see cref="Data"/> 
     /// </summary>
-    public static Dictionary<Data, ObjectPooler.Pool> staticDataAndPools = new Dictionary<Data, ObjectPooler.Pool>();
+    public static Dictionary<Data, ObjectPooler.Pool> dataAndPools = new Dictionary<Data, ObjectPooler.Pool>();
     /// <summary>
     /// A dictionary that contains a Queue for each category
     /// </summary>
-    public static Dictionary<string, Queue<GameObject>> staticPoolDictionary = new Dictionary<string, Queue<GameObject>>();
-    /// <summary>
-    /// The game's language
-    /// </summary>
-    public static LanguageEnum Language;
+    public static Dictionary<CategoryEnum, Queue<GameObject>> poolDictionary = new Dictionary<CategoryEnum, Queue<GameObject>>();
+   
     #endregion
 
     #region Toggles
@@ -86,22 +89,22 @@ public static class GlobalVariables
     {
         // For Family Time
         // Sets the category's name
-        familyTime.Category = "family";
+        familyTime.Category = CategoryEnum.family;
         // For Sexy Time
         // Sets the category's name
-        sexyTime.Category = "sexy";
+        sexyTime.Category = CategoryEnum.sexy;
         // For Macho Time
         // Sets the category's name
-        machoTime.Category = "macho";
+        machoTime.Category = CategoryEnum.macho;
         // For Girly Time
         // Sets the category's name
-        girlyTime.Category = "girly";
+        girlyTime.Category = CategoryEnum.girly;
         // For Daring Time
         // Sets the category's name
-        daringTime.Category = "daring";
+        daringTime.Category = CategoryEnum.daring;
         // For School Time
         // Sets the category's name
-        schoolTime.Category = "school";
+        schoolTime.Category = CategoryEnum.school;
     }
     #endregion
 
@@ -145,11 +148,6 @@ public static class GlobalVariables
 
     #region Images
     //------------------- Images -------------------
-    // Location for all card images for the light theme
-    public static string locationLight = "cardGame/LightTheme/";
-    // Location for all card images for the dark theme
-    public static string locationDark = "cardGame/DarkTheme/";
-
     /// <summary>
     /// Gets the images for the light and the dark theme for the cards.
     /// </summary>
@@ -161,9 +159,9 @@ public static class GlobalVariables
         foreach (var data in dataList)
         {
             // Adds the card image for the light theme of that category
-            data.LightImage = Resources.Load<Sprite>(locationLight + data.Category);
+            data.LightImage = Resources.Load<Sprite>(StringsAndConsants.cardGameLocationLight + data.Category);
             // Adds the card image for the dark theme of that category
-            data.DarkImage = Resources.Load<Sprite>(locationDark + data.Category);
+            data.DarkImage = Resources.Load<Sprite>(StringsAndConsants.cardGameLocationDark + data.Category);
         }
         // Returns the now updated dataList
         return dataList;
@@ -203,33 +201,20 @@ public static class GlobalVariables
         // For each and every data in the dataList...
         foreach (var data in GlobalVariables.dataList)
         {
-            string language;
             string filePath;
             // For language
-            
             data.Language = Language;
-            // If the data's language is English...
-            if (data.Language == LanguageEnum.English)
-                // Sets the string to EN
-                language = "EN";
-            // Else if the data's language is Greek...
-            else if (data.Language == LanguageEnum.Greek)
-                // Sets the string to GR
-                language = "GR";
-            // Else...
-            else
-                // By default language is EN
-                language = "EN";
+            
             // For the JsonData
             // If the toggle is active...
             if (data.ToggleBool == true)
             {
                 // Sets the file path accordingly in order to access that specific file
-                filePath = $"/Codes/Json/{data.Category}Time{language}.json";
+                filePath = $"/Codes/Json/{data.Category}Time{data.Language}.json";
                 // Sets the data's JsonData to the data in the accessed json file
                 data.JsonData = AccessFileData(filePath);
                 // Creates an array that contains the elements of the JSON file's array.
-                JArray cards = (JArray)data.JsonData["cards"];
+                JArray cards = (JArray)data.JsonData[StringsAndConsants.cards];
                 // Sets data's length equal the size of the array.
                 data.Length = cards.Count;
             }
