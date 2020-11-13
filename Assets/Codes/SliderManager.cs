@@ -22,7 +22,7 @@ public class SliderManager : MonoBehaviour
     {
         sources = FindObjectsOfType<AudioSource>();
 
-        foreach(var source in sources)
+        foreach (var source in sources)
         {
             source.volume = PlayerPrefs.GetFloat("SliderVolume");
         }

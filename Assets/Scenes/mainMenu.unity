@@ -1352,7 +1352,7 @@ GameObject:
   - component: {fileID: 526886485}
   m_Layer: 5
   m_Name: BackButton
-  m_TagString: Untagged
+  m_TagString: BackButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1368,13 +1368,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2072385333}
-  m_RootOrder: 2
+  m_Father: {fileID: 2041781943}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -565}
-  m_SizeDelta: {x: 306, y: 122}
+  m_AnchoredPosition: {x: 0, y: -552}
+  m_SizeDelta: {x: 318.5019, y: 147.0036}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &526886482
 MonoBehaviour:
@@ -1475,7 +1475,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 728ad77c31406c845990646d447f524e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 24accac87774eda42a5f0702804eeeae, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1517,10 +1517,9 @@ GameObject:
   - component: {fileID: 572527209}
   - component: {fileID: 572527208}
   - component: {fileID: 572527207}
-  - component: {fileID: 572527210}
   m_Layer: 5
   m_Name: SelectDecksButton
-  m_TagString: Untagged
+  m_TagString: ChooseDecksButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1649,18 +1648,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 572527205}
   m_CullTransparentMesh: 0
---- !u!114 &572527210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 572527205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b4c8552fbb0f64894799343d7eb604, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &581503035
 GameObject:
   m_ObjectHideFlags: 0
@@ -1675,6 +1662,7 @@ GameObject:
   - component: {fileID: 581503039}
   - component: {fileID: 581503040}
   - component: {fileID: 581503041}
+  - component: {fileID: 581503042}
   m_Layer: 5
   m_Name: Themes
   m_TagString: Untagged
@@ -1766,13 +1754,41 @@ MonoBehaviour:
   language:
   - lang: Greek
     Settings: "\u03A1\u03C5\u03B8\u03BC\u03AF\u03C3\u03B5\u03B9\u03C2"
+    LightTheme: "\u03C6\u03C9\u03C4\u03B5\u03B9\u03BD\u03CC \u03B8\u03AD\u03BC\u03B1"
     DarkTheme: "\u03C3\u03BA\u03BF\u03C4\u03B5\u03B9\u03BD\u03CC \u03B8\u03AD\u03BC\u03B1"
+    FamilyCard: 
+    SexyCard: 
+    MachoCard: 
+    GirlyCard: 
+    DaringCard: 
+    SchoolCard: 
   - lang: English
     Settings: Settings
+    LightTheme: light time
     DarkTheme: dark time
-  Settings: {fileID: 2121130949}
+    FamilyCard: 
+    SexyCard: 
+    MachoCard: 
+    GirlyCard: 
+    DaringCard: 
+    SchoolCard: 
+  SettingsDark: {fileID: 607465696}
+  SettingsLight: {fileID: 2121130949}
   DarkTheme: {fileID: 1696999539}
+  LightTheme: {fileID: 839167786}
   index: 0
+--- !u!114 &581503042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581503035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b4c8552fbb0f64894799343d7eb604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &586441243
 GameObject:
   m_ObjectHideFlags: 0
@@ -1883,7 +1899,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 180}
-  m_SizeDelta: {x: 358.10242, y: 158.54793}
+  m_SizeDelta: {x: 383.9484, y: 198.1506}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &607465696
 MonoBehaviour:
@@ -1938,9 +1954,9 @@ MonoBehaviour:
   m_fontSize: 100
   m_fontSizeBase: 100
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 70
+  m_fontSizeMax: 100
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -2133,30 +2149,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1854402917}
-        m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: b99cbc1f8d40eea4f8c1452ae6e05ad9, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 572527210}
-        m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: c5f094e5207747042b28c9bc15c8382b, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1497101690}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
@@ -2181,49 +2173,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1753064127}
+      - m_Target: {fileID: 581503042}
         m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
+        m_MethodName: ChangeImageOnClick
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 7d063ffa77d80bb4d979d2e0e690dff4, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2060184441}
-        m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 9b8f034843397794d91a8dc3b9390cbd, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1389504660}
-        m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 5b72e6ba8e94e9341ab30d1da67a248a, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 526886485}
-        m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 728ad77c31406c845990646d447f524e, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2338,8 +2294,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 62.413, y: -0.000030518}
-  m_SizeDelta: {x: 270.80896, y: 70.231125}
+  m_AnchoredPosition: {x: 88, y: -0.000011444}
+  m_SizeDelta: {x: 341.999, y: 103.0885}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &839167786
 MonoBehaviour:
@@ -2394,9 +2350,9 @@ MonoBehaviour:
   m_fontSize: 70
   m_fontSizeBase: 70
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 35
+  m_fontSizeMax: 70
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -2411,7 +2367,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_isTextTruncated: 0
@@ -2507,7 +2463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2814,6 +2770,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 581503037}
+        m_TargetAssemblyTypeName: KeepTheme, Assembly-CSharp
+        m_MethodName: UpdateTheme
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 581503042}
+        m_TargetAssemblyTypeName: Images, Assembly-CSharp
+        m_MethodName: ChangeImageOnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &983318396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3076,30 +3056,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2060184441}
-        m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 1cd2da531d11cf54f9c5ab95b67d13ff, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1389504660}
-        m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 4693a5f93ced03b4fbd4806460015bfc, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1497101690}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
@@ -3112,57 +3068,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 526886485}
-        m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 442a3ed0e856ad84ba77a50e6903a66a, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1854402917}
-        m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: c550b0b838d6496479bbf12cd499643a, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 572527210}
-        m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 11c2c45184af34a429728bd80b46de10, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1753064127}
-        m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: c775b4ead52bcdc4bbef444d4e76793c, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 581503041}
         m_TargetAssemblyTypeName: LanguageSettings, Assembly-CSharp
         m_MethodName: GreekOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 581503042}
+        m_TargetAssemblyTypeName: Images, Assembly-CSharp
+        m_MethodName: ChangeImageOnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3951,10 +3871,9 @@ GameObject:
   - component: {fileID: 1389504659}
   - component: {fileID: 1389504658}
   - component: {fileID: 1389504657}
-  - component: {fileID: 1389504660}
   m_Layer: 5
   m_Name: SelectDecksButton
-  m_TagString: Untagged
+  m_TagString: ChooseDecksButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4083,18 +4002,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1389504655}
   m_CullTransparentMesh: 0
---- !u!114 &1389504660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1389504655}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b4c8552fbb0f64894799343d7eb604, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1393003636
 GameObject:
   m_ObjectHideFlags: 0
@@ -4188,30 +4095,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1854402917}
-        m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: c550b0b838d6496479bbf12cd499643a, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 572527210}
-        m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 11c2c45184af34a429728bd80b46de10, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1497101690}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
@@ -4236,49 +4119,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1753064127}
+      - m_Target: {fileID: 581503042}
         m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
+        m_MethodName: ChangeImageOnClick
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: c775b4ead52bcdc4bbef444d4e76793c, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2060184441}
-        m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 1cd2da531d11cf54f9c5ab95b67d13ff, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1389504660}
-        m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 4693a5f93ced03b4fbd4806460015bfc, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 526886485}
-        m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 442a3ed0e856ad84ba77a50e6903a66a, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5043,8 +4890,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 62.413, y: -0.000030518}
-  m_SizeDelta: {x: 270.80896, y: 70.231125}
+  m_AnchoredPosition: {x: 81, y: -0.000011444}
+  m_SizeDelta: {x: 341.999, y: 103.0885}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1696999539
 MonoBehaviour:
@@ -5099,9 +4946,9 @@ MonoBehaviour:
   m_fontSize: 70
   m_fontSizeBase: 70
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 35
+  m_fontSizeMax: 70
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -5116,7 +4963,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_isTextTruncated: 0
@@ -5255,30 +5102,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2060184441}
-        m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 9b8f034843397794d91a8dc3b9390cbd, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1389504660}
-        m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 5b72e6ba8e94e9341ab30d1da67a248a, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1497101690}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
@@ -5291,57 +5114,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 526886485}
-        m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 728ad77c31406c845990646d447f524e, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1854402917}
-        m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: b99cbc1f8d40eea4f8c1452ae6e05ad9, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 572527210}
-        m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: c5f094e5207747042b28c9bc15c8382b, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1753064127}
-        m_TargetAssemblyTypeName: Images, Assembly-CSharp
-        m_MethodName: ChangeImage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: c775b4ead52bcdc4bbef444d4e76793c, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 581503041}
         m_TargetAssemblyTypeName: LanguageSettings, Assembly-CSharp
         m_MethodName: EnglishOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 581503042}
+        m_TargetAssemblyTypeName: Images, Assembly-CSharp
+        m_MethodName: ChangeImageOnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5660,7 +5447,7 @@ GameObject:
   - component: {fileID: 1753064127}
   m_Layer: 5
   m_Name: BackButton
-  m_TagString: Untagged
+  m_TagString: BackButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5681,8 +5468,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -565}
-  m_SizeDelta: {x: 306, y: 122}
+  m_AnchoredPosition: {x: 0, y: -552}
+  m_SizeDelta: {x: 318.5019, y: 147.00363}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1753064124
 MonoBehaviour:
@@ -5783,7 +5570,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7d063ffa77d80bb4d979d2e0e690dff4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eb27266d1430ae24092c18dc6b29b520, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6135,10 +5922,9 @@ GameObject:
   - component: {fileID: 1854402916}
   - component: {fileID: 1854402915}
   - component: {fileID: 1854402914}
-  - component: {fileID: 1854402917}
   m_Layer: 5
   m_Name: PlayButton
-  m_TagString: Untagged
+  m_TagString: PlayButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6267,18 +6053,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854402912}
   m_CullTransparentMesh: 0
---- !u!114 &1854402917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1854402912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b4c8552fbb0f64894799343d7eb604, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1856447791
 GameObject:
   m_ObjectHideFlags: 0
@@ -6826,6 +6600,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 581503037}
+        m_TargetAssemblyTypeName: KeepTheme, Assembly-CSharp
+        m_MethodName: UpdateTheme
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 581503042}
+        m_TargetAssemblyTypeName: Images, Assembly-CSharp
+        m_MethodName: ChangeImageOnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1929242525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7045,6 +6843,7 @@ RectTransform:
   - {fileID: 607465695}
   - {fileID: 2072385333}
   - {fileID: 1929242523}
+  - {fileID: 526886481}
   m_Father: {fileID: 1911988792}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7065,10 +6864,9 @@ GameObject:
   - component: {fileID: 2060184440}
   - component: {fileID: 2060184439}
   - component: {fileID: 2060184438}
-  - component: {fileID: 2060184441}
   m_Layer: 5
   m_Name: PlayButton
-  m_TagString: Untagged
+  m_TagString: PlayButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7197,18 +6995,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060184436}
   m_CullTransparentMesh: 0
---- !u!114 &2060184441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2060184436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b4c8552fbb0f64894799343d7eb604, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2072385332
 GameObject:
   m_ObjectHideFlags: 0
@@ -7238,7 +7024,6 @@ RectTransform:
   m_Children:
   - {fileID: 1224026422}
   - {fileID: 1156507698}
-  - {fileID: 526886481}
   m_Father: {fileID: 2041781943}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7359,7 +7144,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 180}
-  m_SizeDelta: {x: 383.94836, y: 198.1506}
+  m_SizeDelta: {x: 383.9484, y: 198.1506}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2121130949
 MonoBehaviour:
@@ -7414,9 +7199,9 @@ MonoBehaviour:
   m_fontSize: 100
   m_fontSizeBase: 100
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 70
+  m_fontSizeMax: 100
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512

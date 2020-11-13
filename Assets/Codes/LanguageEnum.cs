@@ -1,5 +1,6 @@
 ﻿public enum LanguageEnum
 { 
     English,
-    Greek
+    Greek,
+    None
 }

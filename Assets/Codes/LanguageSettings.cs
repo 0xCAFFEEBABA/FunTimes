@@ -4,65 +4,114 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// Build a class with all the texts we need to change 
+/// </summary>
 [System.Serializable]
 public class Language
 {
+    /// <summary>
+    /// the name of a game's language
+    /// </summary>
     public string lang;
-    //public string Settings, LightTheme, DarkTheme, MainMenu, Play, NextCard, FamilyCard, SexyCard, MachoCard, GirlyCard, DaringCard, SchoolCard;
-    public string Settings, DarkTheme;
+    /// <summary>
+    /// Αll the texts we need to change
+    /// </summary>
+    public string Settings, LightTheme, DarkTheme,
+                  FamilyCard, SexyCard, MachoCard, GirlyCard,
+                  DaringCard, SchoolCard;
 }
 public class LanguageSettings : MonoBehaviour
 {
+    /// <summary>
+    /// Makes an array with the languages we have
+    /// </summary>
     public Language[] language;
-    /*public TextMeshProUGUI Settings, LightTheme,DarkTheme,MainMenu,Play,NextCard,FamilyCard,SexyCard,MachoCard,GirlyCard,DaringCard,SchoolCard;*/
-    public TextMeshProUGUI Settings, DarkTheme;
-
+    /// <summary>
+    /// Make TextMeshProUGUI of all the texts we have in this scene
+    /// </summary>
+    public TextMeshProUGUI SettingsDark, SettingsLight, DarkTheme, LightTheme;
+    /// <summary>
+    /// Initialize an index
+    /// </summary>
     public int index;
 
-    public void Start()
+    /// <summary>
+    /// If it's the first play through gets the system's language and sets it as our game's language.
+    /// If the player has changed the language during their time playing, continues with the new language settings
+    /// </summary>
+    public void Awake()
     {
-        if (Application.systemLanguage == SystemLanguage.English)
+        // If it's the first playThrough
+        if (GlobalVariables.Language == LanguageEnum.None)
         {
-            EnglishOn();
+            // If the system's language is english
+            if (Application.systemLanguage == SystemLanguage.English)
+            {
+                // Set game's language to english
+                EnglishOn();
+            }
+            // If the system's language is greek
+            else if (Application.systemLanguage == SystemLanguage.Greek)
+            {
+                // Set the game's language to greek
+                GreekOn();
+            }
+            // Else if it's in another language  use english
+            else
+                // Set the game's language to english
+                EnglishOn();
         }
-        else if (Application.systemLanguage == SystemLanguage.Greek)
-        {
-            GreekOn();
-        }
+        // If it's not the first playThrough
         else
-            EnglishOn();
-        CurrentLanguage();
+        {
+            // Get the previous settings
+            index = PlayerPrefs.GetInt("Language", 1);
+            // Change texts according to previous settings
+            CurrentLanguage();
+        }
     }
-
+    /// <summary>
+    /// Sets the game's  language to Greek
+    /// and saves value of index in Language
+    /// </summary>
     public void GreekOn()
     {
+        // Set the global variable for language to greek
         GlobalVariables.Language = LanguageEnum.Greek;
+        // Set the value of the index to 0
         index = 0;
+        // Save the settings
         PlayerPrefs.SetInt("Language", index);
+        // Change the texts to greek
         CurrentLanguage();
     }
+    /// <summary>
+    /// Sets the game's  language to English
+    /// and saves value of index in Language
+    /// </summary>
     public void EnglishOn()
     {
+        // Set the global variable for language to english
         GlobalVariables.Language = LanguageEnum.English;
+        // Set the value of the index to 1
         index = 1;
+        // Save the settings
         PlayerPrefs.SetInt("Language", index);
+        // Change the texts to english
         CurrentLanguage();
     }
 
+    /// <summary>
+    /// Change the  TextMeshProUGUI components based on the index-language- the user chooses
+    /// </summary>
     public void CurrentLanguage()
     {
-        Settings.text = language[index].Settings;
-        //LightTheme.text = language[index].LightTheme;
+        // Change all the texts
+        SettingsDark.text = language[index].Settings;
         DarkTheme.text = language[index].DarkTheme;
-       /* MainMenu.text = language[index].MainMenu;
-        Play.text = language[index].Play;
-        NextCard.text = language[index].NextCard;
-        FamilyCard.text = language[index].FamilyCard;
-        SexyCard.text = language[index].SexyCard;
-        MachoCard.text = language[index].MachoCard;
-        GirlyCard.text = language[index].GirlyCard;
-        DaringCard.text = language[index].DaringCard;
-        SchoolCard.text = language[index].SchoolCard;*/
+        SettingsLight.text = language[index].Settings;
+        LightTheme.text = language[index].LightTheme;
     }
- 
+
 }

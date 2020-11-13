@@ -19,10 +19,11 @@ TagManager:
   - DarkThemeText
   - LightThemeText
   - MainMenuTag
-  - PlayButtonText
   - NextButton
   - PlayButton
   - MainMenuButton
+  - ChooseDecksButton
+  - BackButton
   layers:
   - Default
   - TransparentFX
@@ -32,7 +33,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - sideMenu
   - 
   - 
   - 

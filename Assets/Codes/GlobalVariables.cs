@@ -13,7 +13,7 @@ public static class GlobalVariables
     /// <summary>
     /// The game's language
     /// </summary>
-    public static LanguageEnum Language;
+    public static LanguageEnum Language = LanguageEnum.None;
     /// <summary>
     /// A Data type variable
     /// </summary>

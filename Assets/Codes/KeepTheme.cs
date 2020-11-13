@@ -14,18 +14,26 @@ public class KeepTheme : MonoBehaviour
     /// Saves it in <see cref="GlobalVariables.Theme"/> before destroying this scene.
     /// </summary>
     public void OnDestroy()
-    { 
+    {
+        UpdateTheme();
+    }
+
+    /// <summary>
+    /// Checks which theme is active and updates the <see cref="GlobalVariables.Theme"/> parameter accordingly.
+    /// </summary>
+    public void UpdateTheme()
+    {
         // Finds the gameObject that represents the dark theme
         var darkTheme = Resources.FindObjectsOfTypeAll<GameObject>().FirstOrDefault(g => g.CompareTag(StringsAndConsants.darkTheme));
         // Finds the gameObject that represents the light theme.
         var lightTheme = Resources.FindObjectsOfTypeAll<GameObject>().FirstOrDefault(g => g.CompareTag(StringsAndConsants.lightTheme));
-       
+
         // If the light theme is active...
         if (lightTheme.activeSelf)
         {
             GlobalVariables.Theme = ThemeEnum.LightTheme;
         }
-            
+
         // Else if the dark theme is active...
         else if (darkTheme.activeSelf)
             GlobalVariables.Theme = ThemeEnum.DarkTheme;

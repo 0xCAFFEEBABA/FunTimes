@@ -17,4 +17,6 @@ public class NavigateScenes : MonoBehaviour
     {
         SceneManager.LoadScene(StringsAndConsants.mainMenuScene);
     }
+    
+
 }

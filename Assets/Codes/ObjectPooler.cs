@@ -4,6 +4,8 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
+using System;
 
 public class ObjectPooler : MonoBehaviour
 {
@@ -74,6 +76,7 @@ public class ObjectPooler : MonoBehaviour
     /// </summary>
     public Queue<GameObject> randomCardsQueue = new Queue<GameObject>();
     #endregion
+
 
     /// <summary>
     /// It's called before the scene is loaded.
@@ -245,23 +248,27 @@ public class ObjectPooler : MonoBehaviour
         while (totalCardsList.Count != 0)
         {
             // Sets the index to a random integer from 0 to the number of total cards - 1.
-            var index = Random.Range(0, totalCardsList.Count - 1);
+            var index = UnityEngine.Random.Range(0, totalCardsList.Count - 1);
             // Enqueues in the random queue a card that the index is currently pointing at.
             randomCardsQueue.Enqueue(totalCardsList[index]);
             // Removes the card that the index is pointing at from the list.
             totalCardsList.RemoveAt(index);
         }
     }
+
+    public GameObject spawnedObject;
+
     /// <summary>
     /// Spawns a clone of a card by dequeuing it from the random queue and then en queuing it back.
     /// </summary>
     public void SpawnFromRandomQueue()
     {
+
         // If the last card has not been displayed...
         if (count <= total)
         {
             // Sets the card's position.
-            var cardPosition = new Vector3(0f, 39f, 0f);
+            var cardPosition = new Vector3(900f, 25f, 0f);
             // Dequeues a card from the queue that has the cards in random order.
             var objectToSpawn = randomCardsQueue.Dequeue();
             // Sets active the dequeued card. 
@@ -269,18 +276,31 @@ public class ObjectPooler : MonoBehaviour
             // Sets the parent of the cards to the "themes" gameObject.
             var parent = GameObject.Find("Themes");
             // Sets the spawned card as the instance of the card.
-            var spawnedObject = Instantiate(objectToSpawn, cardPosition, Quaternion.identity, parent.transform);
+            spawnedObject = Instantiate(objectToSpawn, cardPosition, Quaternion.identity, parent.transform);
             // Sets the spawned card's parent to the parent.
             spawnedObject.transform.SetParent(parent.transform);
             // Sets the spawned cards position.
             spawnedObject.transform.localPosition = cardPosition;
             // Sets the spawned card's scale to 1.
             spawnedObject.transform.localScale = new Vector3(1f, 1f, 1f);
+            // Slide in the new card 
+            spawnedObject.GetComponent<RectTransform>().DOAnchorPos(new Vector2(0f, 25f), 0.25f);
+            // Sets the spawned card's parent as the "Cards" game object.
+            spawnedObject.transform.parent = GameObject.Find("Cards").transform;
             // Enqueues the card that was cloned.
             randomCardsQueue.Enqueue(objectToSpawn);
         }
     }
 
+    public void ShowCardAnimation()
+    {
+        spawnedObject.GetComponent<RectTransform>().DOAnchorPos(new Vector2(0f, 25f), 0.25f);
+    }
+    public void CloseCardAnimation()
+    {
+        spawnedObject.GetComponent<RectTransform>().DOAnchorPos(new Vector2(-900f, 25f), 0.25f);
+        Destroy(spawnedObject,1f);
+    }
     /// <summary>
     /// Creates for every data an array of all the tasks in the according JSON file.
     /// </summary>
