@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 61
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffe70aba2e7074048aca5de573b64a59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SimpleSelectedItems:
+    m_Keys:
+    - Assets/Codes/Images.cs
+    - Assets/Codes/LanguageManager2.cs
+    - Assets/Codes/LanguageManager2.cs.meta
+    - Assets/Codes/LanguageManager3.cs
+    - Assets/Codes/LanguageManager3.cs.meta
+    - Assets/Codes/LanguageSettings.cs
+    - Assets/Codes/SideMenu.cs
+    - Assets/Codes/SliderManager.cs
+    - Assets/Codes/StringsAndConsants.cs
+    - Assets/Resources/mainMenu/LightTheme/InstructionsEN.png
+    - Assets/Resources/mainMenu/LightTheme/InstructionsEN.png.meta
+    - Assets/Resources/mainMenu/LightTheme/InstructionsGR.png
+    - Assets/Resources/mainMenu/LightTheme/InstructionsGR.png.meta
+    - Assets/Resources/soundEffects/pouringShorter.wav
+    - Assets/Resources/soundEffects/pouringShorter.wav.meta
+    - Assets/Scenes/cardGame.unity
+    - Assets/Scenes/chooseDecks.unity
+    - Assets/Scenes/mainMenu.unity
+    - Assets/Scripts/mainMenu/InsructionMenuEnglish.png.meta
+    - Assets/Scripts/mainMenu/InsructionMenuGreek.png.meta
+    - Assets/Scripts/mainMenu/null.png
+    - Assets/Scripts/mainMenu/null.png.meta
+    - ProjectSettings/TagManager.asset
+    - 
+    m_Values: 000000000000000000000000000000000000000000000000
+  RevisionSummary: 
+  ChangesSearchValue: 
+  SelectedHistoryRevision: 
+  HistoryPageNumber: 0
+  TabIndex: 0
