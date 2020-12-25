@@ -5,7 +5,7 @@ ScriptsOnlyBuild:
     - DefaultDeck
     - Images
     - KeepTheme
-    - LanguageManager2
+    - LanguageManager3
     - LanguageSettings
     - NavigateScenes
     - ObjectPooler
@@ -18,8 +18,6 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
-    - UnityEditor.Tilemaps.GridPaletteBrushes
-    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.CollabProxy.Editor.dll:
@@ -74,11 +72,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12128}
     - Class: 114
-      Script: {instanceID: 12392}
+      Script: {instanceID: 12390}
     - Class: 114
-      Script: {instanceID: 12850}
+      Script: {instanceID: 12848}
     - Class: 114
-      Script: {instanceID: 12958}
+      Script: {instanceID: 12956}
+    - Class: 114
+      Script: {instanceID: 13042}
     - Class: 114
       Script: {instanceID: 13138}
     - Class: 114
@@ -97,8 +97,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 15188}
     - Class: 114
       Script: {instanceID: 15240}
-    - Class: 114
-      Script: {instanceID: 21334}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -139,13 +137,13 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12128}
     - Class: 114
-      Script: {instanceID: 12252}
+      Script: {instanceID: 12390}
     - Class: 114
-      Script: {instanceID: 12392}
+      Script: {instanceID: 12848}
     - Class: 114
-      Script: {instanceID: 12850}
+      Script: {instanceID: 12956}
     - Class: 114
-      Script: {instanceID: 12958}
+      Script: {instanceID: 13138}
     - Class: 114
       Script: {instanceID: 13656}
     - Class: 114
@@ -204,15 +202,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12128}
     - Class: 114
-      Script: {instanceID: 12392}
+      Script: {instanceID: 12390}
     - Class: 114
-      Script: {instanceID: 12850}
+      Script: {instanceID: 12848}
     - Class: 114
-      Script: {instanceID: 12910}
+      Script: {instanceID: 12908}
     - Class: 114
-      Script: {instanceID: 12958}
+      Script: {instanceID: 12956}
     - Class: 114
-      Script: {instanceID: 13004}
+      Script: {instanceID: 13002}
     - Class: 114
       Script: {instanceID: 13138}
     - Class: 114
@@ -366,12 +364,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GridLayoutGroup
-  - hash:
-      serializedVersion: 2
-      Hash: f3391990d60c277981ce3dd158352dd4
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: LanguageManager2
   - hash:
       serializedVersion: 2
       Hash: 523ce309f50d9eee6a8fc0e2f86c9c97
@@ -548,10 +540,16 @@ ScriptsOnlyBuild:
     className: Benchmark01
   - hash:
       serializedVersion: 2
-      Hash: 4f16d80fdc4eff62bc07db6ed128971d
+      Hash: f4800b1d41e339806933b1a517c68a5b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LanguageSettings
+  - hash:
+      serializedVersion: 2
+      Hash: 302c71345883c7b2c350aa0736f7be88
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LanguageManager3
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -968,7 +966,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMesh
   - hash:
       serializedVersion: 2
-      Hash: 56a48eaace5d1afe2625633bb61e7ec3
+      Hash: 83dabf08d03fbc01d6ae528f10da3c95
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SideMenu
@@ -1037,4 +1035,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/mainMenu.unity
   - Assets/Scenes/cardGame.unity
   - Assets/Scenes/chooseDecks.unity
-  playerPath: C:/Users/PapKate/Desktop/funTimesTest.apk
+  playerPath: C:/Users/PapKate/Desktop/funTimesBeta.apk

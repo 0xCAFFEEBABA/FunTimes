@@ -8,6 +8,13 @@ public class Data
     /// The name of the category
     /// </summary>
     public CategoryEnum Category { get; set; }
+
+    /// <summary>
+    /// Tells if a category is locked or not
+    /// The default value is true
+    /// </summary>
+    public bool IsLocked { get; set; } = true;
+
     /// <summary>
     /// A boolean value for whether the toggle is on or not
     /// </summary>

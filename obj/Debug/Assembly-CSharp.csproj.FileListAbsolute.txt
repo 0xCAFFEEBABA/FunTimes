@@ -314,5 +314,7 @@ C:\Users\PapKate\Desktop\Unity\FunTimes\obj\Debug\Assembly-CSharp.csproj.CoreCom
 C:\Users\PapKate\Desktop\Unity\FunTimes\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 C:\Users\PapKate\Desktop\Unity\FunTimes\obj\Debug\Assembly-CSharp.dll
 C:\Users\PapKate\Desktop\Unity\FunTimes\obj\Debug\Assembly-CSharp.pdb
-C:\Users\PapKate\Desktop\Unity\FunTimes\Temp\bin\Debug\LitJson.dll
 C:\Users\PapKate\Desktop\Unity\FunTimes\Temp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\PapKate\Desktop\Unity\FunTimes\Temp\bin\Debug\DOTween.dll
+C:\Users\PapKate\Desktop\Unity\FunTimes\Temp\bin\Debug\Assembly-CSharp-firstpass.pdb
+C:\Users\PapKate\Desktop\Unity\FunTimes\Temp\bin\Debug\DOTween.xml

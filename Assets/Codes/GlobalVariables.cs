@@ -55,6 +55,14 @@ public static class GlobalVariables
     /// Checks if the player pressed to move to another scene from Side Menu in "cardGame" scene
     /// </summary>
     public static bool fromSideMenu = false;
+
+    public static Dictionary<string, ToggleBool> PreviewsDictionary = new Dictionary<string, ToggleBool>();
+
+
+    /// <summary>
+    /// The default volume level of the game
+    /// </summary>
+    public static float volume = 100f;
     #endregion
 
     #region Toggles
@@ -93,6 +101,8 @@ public static class GlobalVariables
         // For Family Time
         // Sets the category's name
         familyTime.Category = CategoryEnum.family;
+        // The family category is always unlocked 
+        familyTime.IsLocked = false;
         // For Sexy Time
         // Sets the category's name
         sexyTime.Category = CategoryEnum.sexy;

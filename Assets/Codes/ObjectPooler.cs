@@ -291,14 +291,18 @@ public class ObjectPooler : MonoBehaviour
             randomCardsQueue.Enqueue(objectToSpawn);
         }
     }
-
+    // Method that brings in the new card.
     public void ShowCardAnimation()
     {
+        // Slide in the new card 
         spawnedObject.GetComponent<RectTransform>().DOAnchorPos(new Vector2(0f, 25f), 0.25f);
     }
+    // Method that gets out of the frame the previous card.
     public void CloseCardAnimation()
     {
+        // Slide out of the frame the card 
         spawnedObject.GetComponent<RectTransform>().DOAnchorPos(new Vector2(-900f, 25f), 0.25f);
+        // Destroy the spawned object
         Destroy(spawnedObject,1f);
     }
     /// <summary>

@@ -5,40 +5,41 @@ using UnityEngine.UI;
 
 public class SliderManager : MonoBehaviour
 {
+    // Make an array for sliders
+    private Slider[] sliders;
+    // Initialize musicVolume to 1f.
     float musicVolume = 1f;
+    // Make an array for audiosources
     private AudioSource[] sources;
-
-    /// <summary>
-    /// Controls and updates the new volume from the slider
-    /// </summary>
-    /// <param name="newVolume"></param>
+  
+     // To control slider.
     public void ChangeSlider(float newVolume)
     {
+        // Set music volume equal to newVolume.
         musicVolume = newVolume;
+        // Save musicVolume in PlayerPref's SliderVolume.
         PlayerPrefs.SetFloat("SliderVolume", musicVolume);
-        UpdateVolumes();
+       
     }
 
-    /// <summary>
-    /// Calls the <see cref="UpdateVolumes"/> method to update the volume at the start of every scene
-    /// </summary>
-    public void Start()
+    
+    void Update()
     {
-        UpdateVolumes();
-    }
-   
-    /// <summary>
-    /// Updates the volume for every audio source in scene
-    /// </summary>
-    public void UpdateVolumes()
-    {
-        // Gets all the audio objects in current scene
+        // Find all audiosources in current scene.
         sources = FindObjectsOfType<AudioSource>();
-        // For each audio source in scene...
+        // Find all sliders in current scene.
+        sliders = FindObjectsOfType<Slider>();
+
+        // Foreach source in sources set their volume equal to SliderVolume
         foreach (var source in sources)
         {
-            // Set the volume equal to the slider's volume
             source.volume = PlayerPrefs.GetFloat("SliderVolume");
+        }
+
+        // Foreach slider in sliders set their value equal to SliderVolume
+        foreach (var slider in sliders)
+        {
+            slider.value = PlayerPrefs.GetFloat("SliderVolume");
         }
     }
 

@@ -28,6 +28,9 @@ TagManager:
   - PlayButtonText
   - SideMenuButton
   - InstructionsImageTag
+  - SideMenuBlur
+  - SideMenuBackground
+  - PreviewCard
   layers:
   - Default
   - TransparentFX

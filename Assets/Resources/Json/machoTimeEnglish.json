@@ -23,15 +23,15 @@
         },
         {
             "id" : "6",
-            "task" : "Vote on who you think has the biggest... secret in their pants. That person has to drink."
+            "task" : "Vote on who you think has the biggest...secret in their pants. That person has to drink."
         },
         {
             "id" : "7",
-            "task" : "Vote on who is more likely to get into a fight, that person has to choose who he would fight from you and they drink together."
+            "task" : "Vote on who is most likely to get into a fight, that person has to choose who he would fight from you and they drink together."
         },
         {
             "id" : "8",
-            "task" : "Vote on who is more likely to fart in a closed space and watch others squeal, he has to drink."
+            "task" : "Vote on who is most likely to fart in a closed space and watch others squeal, he has to drink."
         },
         {
             "id" : "9",
@@ -47,11 +47,11 @@
         },
         {
             "id" : "12",
-            "task" : "Vote on who is more likely to date someone much older than them, that person has to drink."
+            "task" : "Vote on who is most likely to date someone much older than them, that person has to drink."
         },
         {
             "id" : "13",
-            "task" : "Vote on who is more likely to date someone much younger than them, that person has to drink."
+            "task" : "Vote on who is most likely to date someone much younger than them, that person has to drink."
         },
         {
             "id" : "14",
@@ -91,15 +91,15 @@
         },
         {
             "id" : "23",
-            "task" : "Vote on who is more likely to bench-press more than they weight, that person gets to choose who drinks."
+            "task" : "Vote on who is most likely to bench-press more than they weight, that person gets to choose who drinks."
         },
         {
             "id" : "24",
-            "task" : "Vote on who is more likely to adjust their balls in public more often.He has to drink."
+            "task" : "Vote on who is most likely to adjust their balls in public more often. He has to drink."
         },
         {
             "id" : "25",
-            "task" : "Have you ever seen your girl best friend in a romantic way? If yes ,reveal her name or drink."
+            "task" : "Have you ever seen your girl best friend in a romantic way? If yes, reveal her name or drink."
         },
         {
             "id" : "26",
@@ -107,7 +107,7 @@
         },
         {
             "id" : "27",
-            "task" : "Vote on who is more likely to burp or fart in front of their significant other. He has to drink."
+            "task" : "Vote on who is most likely to burp or fart in front of their significant other. He has to drink."
         },
         {
             "id" : "28",
@@ -135,7 +135,7 @@
         },
         {
             "id" : "34",
-            "task" : "Vote on who is more likely to go without taking a shower for days. He has to drink."
+            "task" : "Vote on who is most likely to go without taking a shower for days. He has to drink."
         },
         {
             "id" : "35",
@@ -143,7 +143,7 @@
         },
         {
             "id" : "36",
-            "task" : "Vote on who is more likely to drunk text their ex, he gets to choose who drinks."
+            "task" : "Vote on who is most likely to drunk text their ex, he gets to choose who drinks."
         },
         {
             "id" : "37",
@@ -163,7 +163,7 @@
         },
         {
             "id" : "41",
-            "task" : "Vote on who is more likely to wear his girlfriend's clothes.That person gets to choose who drinks."
+            "task" : "Vote on who is most likely to wear his girlfriend's clothes. That person gets to choose who drinks."
         },
         {
             "id" : "42",
@@ -211,7 +211,7 @@
         },
         {
             "id" : "53",
-            "task" : "DARE OR DARE: Sent a random text to your ex or drink."
+            "task" : "DARE OR DARE: Send a random text to your ex or drink."
         },
         {
             "id" : "54",
@@ -219,15 +219,15 @@
         },
         {
             "id" : "55",
-            "task" : "DARE OR DARE: Sent a DM to your first crush or drink twice."
+            "task" : "DARE OR DARE: Send a DM to your first crush or drink twice."
         },
         {
             "id" : "56",
-            "task" : "DARE OR DARE: Sent a random text to the person you last texted or drink twice."
+            "task" : "DARE OR DARE: Send a random text to the person you last texted or drink twice."
         },
         {
             "id" : "57",
-            "task" : "DARE OR DARE: Sent a song to your crush without context or drink twice."
+            "task" : "DARE OR DARE: Send a song to your crush without context or drink twice."
         },
         {
             "id" : "58",
@@ -395,7 +395,7 @@
         },
         {
             "id" : "99",
-            "task" : "Every player that has gone to a club wearing glasses drinks 3 times."
+            "task" : "Every player that has gone to a club wearing sunglasses drinks 3 times."
         },
         {
             "id" : "100",

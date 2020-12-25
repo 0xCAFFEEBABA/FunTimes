@@ -14,28 +14,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SimpleSelectedItems:
     m_Keys:
-    - Assets/Codes/Images.cs
-    - Assets/Codes/LanguageManager2.cs
-    - Assets/Codes/LanguageManager2.cs.meta
-    - Assets/Codes/LanguageManager3.cs
-    - Assets/Codes/LanguageManager3.cs.meta
-    - Assets/Codes/LanguageSettings.cs
-    - Assets/Codes/SideMenu.cs
-    - Assets/Codes/SliderManager.cs
+    - Assets/Codes/ChoosingDecks.cs
+    - Assets/Codes/Data.cs
+    - Assets/Codes/GlobalVariables.cs
     - Assets/Codes/StringsAndConsants.cs
-    - Assets/Resources/mainMenu/LightTheme/InstructionsEN.png
-    - Assets/Resources/mainMenu/LightTheme/InstructionsEN.png.meta
-    - Assets/Resources/mainMenu/LightTheme/InstructionsGR.png
-    - Assets/Resources/mainMenu/LightTheme/InstructionsGR.png.meta
-    - Assets/Resources/soundEffects/pouringShorter.wav
-    - Assets/Resources/soundEffects/pouringShorter.wav.meta
-    - Assets/Scenes/cardGame.unity
+    - Assets/Codes/ToggleBool.cs
+    - Assets/Codes/ToggleBool.cs.meta
+    - Assets/Resources/Previews/daringAfter.png
+    - Assets/Resources/Previews/daringAfter.png.meta
+    - Assets/Resources/Previews/girlyAfter.png
+    - Assets/Resources/Previews/girlyAfter.png.meta
+    - Assets/Resources/Previews/machoAfter.png
+    - Assets/Resources/Previews/machoAfter.png.meta
+    - Assets/Resources/Previews/schoolAfter.png
+    - Assets/Resources/Previews/schoolAfter.png.meta
+    - Assets/Resources/Previews/sexyAfter.png
+    - Assets/Resources/Previews/sexyAfter.png.meta
+    - Assets/Resources/chooseDecks/DarkTheme/daringLock.png
+    - Assets/Resources/chooseDecks/DarkTheme/girlyLock.png
+    - Assets/Resources/chooseDecks/DarkTheme/machoLock.png
+    - Assets/Resources/chooseDecks/DarkTheme/schoolLock.png
+    - Assets/Resources/chooseDecks/DarkTheme/sexyLock.png
     - Assets/Scenes/chooseDecks.unity
-    - Assets/Scenes/mainMenu.unity
-    - Assets/Scripts/mainMenu/InsructionMenuEnglish.png.meta
-    - Assets/Scripts/mainMenu/InsructionMenuGreek.png.meta
-    - Assets/Scripts/mainMenu/null.png
-    - Assets/Scripts/mainMenu/null.png.meta
     - ProjectSettings/TagManager.asset
     - 
     m_Values: 000000000000000000000000000000000000000000000000
