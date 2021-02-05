@@ -17,28 +17,17 @@ MonoBehaviour:
     - Assets/Codes/ChoosingDecks.cs
     - Assets/Codes/Data.cs
     - Assets/Codes/GlobalVariables.cs
-    - Assets/Codes/StringsAndConsants.cs
-    - Assets/Codes/ToggleBool.cs
-    - Assets/Codes/ToggleBool.cs.meta
-    - Assets/Resources/Previews/daringAfter.png
-    - Assets/Resources/Previews/daringAfter.png.meta
-    - Assets/Resources/Previews/girlyAfter.png
-    - Assets/Resources/Previews/girlyAfter.png.meta
-    - Assets/Resources/Previews/machoAfter.png
-    - Assets/Resources/Previews/machoAfter.png.meta
-    - Assets/Resources/Previews/schoolAfter.png
-    - Assets/Resources/Previews/schoolAfter.png.meta
-    - Assets/Resources/Previews/sexyAfter.png
-    - Assets/Resources/Previews/sexyAfter.png.meta
-    - Assets/Resources/chooseDecks/DarkTheme/daringLock.png
-    - Assets/Resources/chooseDecks/DarkTheme/girlyLock.png
-    - Assets/Resources/chooseDecks/DarkTheme/machoLock.png
-    - Assets/Resources/chooseDecks/DarkTheme/schoolLock.png
-    - Assets/Resources/chooseDecks/DarkTheme/sexyLock.png
+    - Assets/Codes/ObjectPooler.cs
+    - Assets/Codes/PreviewCard.cs
+    - Assets/Codes/PreviewCard.cs.meta
+    - Assets/Resources/Json/previews.json
+    - Assets/Resources/Json/previews.json.meta
     - Assets/Scenes/chooseDecks.unity
+    - Packages/manifest.json
+    - Packages/packages-lock.json
     - ProjectSettings/TagManager.asset
     - 
-    m_Values: 000000000000000000000000000000000000000000000000
+    m_Values: 01010101010101010101010101
   RevisionSummary: 
   ChangesSearchValue: 
   SelectedHistoryRevision: 

@@ -1,0 +1,30 @@
+{ 
+    "previews":
+    [
+        {
+           "category" : "macho",
+           "previewGR" : " κάρτες γεμάτες τεστοστερόνη! Αν τολμάς να παραδεχτείς καφρίλες αλλά είσαι διατεθειμένος να κάνεις κι άλλες, τότε αυτή η στοίβα είναι για σένα και την αντροπαρέα σου!", 
+           "previewEN" : " cards full of testosterone! If you dare admit old stupidities and prepared to make more, then this deck is for you and your boys!", 
+        },
+        {
+            "category" : "sexy",
+            "previewGR" : " κάρτες για έξαλλες διαθέσεις! Αν είσαι διατεθειμένος να αποκαλύψεις πονηρά μυστικά και να τα αναπαρα...στύσεις, αυτή η κατηγορία είναι για σένα και την παρέα σου!", 
+            "previewEN" : " cards designed for NSFW moments! If you're willing to reveal dirty secrets and recreate fantasies, this category is for you and your friends!", 
+        },
+        {
+            "category" : "girly",
+            "previewGR" : " κάρτες ειδικά σχεδιασμένες για... Girls' Night! Αν είσαι έτοιμη για μαλλιοτραβήγματα, εξομολογήγεις αλλά και... twerking, τοτε αυτές οι κάρτες είναι για σένα και την κοριτσοπαρέα σου!", 
+            "previewEN" : " cards especially designed for a... Girls' Night! If you're ready for hair-pulling, confessions but also... twerking, then this deck is for you and your girls!", 
+        },
+        {
+            "category" : "daring",
+            "previewGR" : " κάρτες μόνο για... τολμηρούς! Αν είσαι έτοιμος να ανεβάσεις πατουσάκια στο ίνστα, να χορέψεις, αλλά και να... χαστουκίσεις, τότε αυτή η κατηγορία είναι για σένα και την παρέα σου!",
+            "previewEN" : " cards only for the brave! If you're ready to add feet to your insta stories, dance and... spank, then this category is for you and your friends!",
+        },
+        {
+            "category" : "school",
+            "previewGR" : " κάρτες για να γίνετε όλοι... μαθητές! Αν είσαι προετοιμασμένος να εξεταστείς αλλά και να αναπολήσεις στιγμές απ' τα παλιά, τότε αυτές οι κάρτες είναι για σένα και τη παρέα σου!", 
+            "previewEN" : " cards to turn you back into stundents! If you are prepared to be tested, but also for a trip down memory lane, then this category is for you and your friends!", 
+        }
+    ]
+}

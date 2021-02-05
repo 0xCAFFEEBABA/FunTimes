@@ -159,14 +159,15 @@ public static class GlobalVariables
     }
     #endregion
 
-    #region Images
+    #region Images 
+    
     //------------------- Images -------------------
     /// <summary>
     /// Gets the images for the light and the dark theme for the cards.
     /// </summary>
     /// <param name="dataList">The list that contains all the data.</param>
     /// <returns>The updated list with the data that contain the images for the light and the dark theme.</returns>
-    public static List<Data> GetImages(List<Data> dataList)
+    public static List<Data> GetImages()
     {
         // For each and every data in the dataList...
         foreach (var data in dataList)
@@ -179,6 +180,32 @@ public static class GlobalVariables
         // Returns the now updated dataList
         return dataList;
     }
+
+    #endregion
+
+    #region Preview Cards
+
+    //------------------- Preview cards -------------------
+    /// <summary>
+    /// Gets the required images for the preview cards
+    /// </summary>
+    /// <param name="dataList">The list that contains all the data.</param>
+    public static void GetPreviews()
+    {
+        // For each and every data in the dataList...
+        foreach (var data in dataList)
+        {
+            // Creates a new instance of a preview card
+            data.PreviewCard = new PreviewCard
+            {
+                BuyAllButtonImage = Resources.Load<Sprite>(StringsAndConsants.previewsLocation + data.Category + "Buy"),
+                ToggleCheckMarkImage = Resources.Load<Sprite>(StringsAndConsants.previewsLocation + data.Category + "After"),
+                DeckPreviewImage = Resources.Load<Sprite>(StringsAndConsants.previewsLocation + data.Category),
+                CloseButtonImage = Resources.Load<Sprite>(StringsAndConsants.previewsLocation + data.Category + "X")
+            };
+        }
+    }
+
     #endregion
 
     #region JSON
@@ -208,34 +235,37 @@ public static class GlobalVariables
         // Returns the Json data
         return fileData;
     }
+
     /// <summary>
     /// Unlocks the appropriate JSON files when the according toggle is on.
     /// </summary>
-    public static void OpenJsonFiles()
+    public static void OpenJsonCardsFiles()
     {
         // For each and every data in the dataList...
-        foreach (var data in GlobalVariables.dataList)
+        foreach (var data in dataList)
         {
             string filePath;
             // For language
             data.Language = Language;
             
+            // Sets the file path accordingly in order to access that specific file
+            //filePath = $"/Codes/Json/{data.Category}Time{data.Language}.json";
+            filePath = $"Json/{data.Category}Time{data.Language}";
+            var categoryJData = AccessFileData(filePath);
+            // Creates an array that contains the elements of the JSON file's array.
+            JArray cards = (JArray)categoryJData[StringsAndConsants.cards];
+            // Sets data's length equal the size of the array.
+            data.Length = cards.Count;
+
             // For the JsonData
             // If the toggle is active...
             if (data.ToggleBool == true)
             {
-                // Sets the file path accordingly in order to access that specific file
-                //filePath = $"/Codes/Json/{data.Category}Time{data.Language}.json";
-                filePath = $"Json/{data.Category}Time{data.Language}";
-
                 // Sets the data's JsonData to the data in the accessed json file
-                data.JsonData = AccessFileData(filePath);
-                // Creates an array that contains the elements of the JSON file's array.
-                JArray cards = (JArray)data.JsonData[StringsAndConsants.cards];
-                // Sets data's length equal the size of the array.
-                data.Length = cards.Count;
+                data.JsonData = categoryJData;
             }
         }
     }
+
     #endregion
 }

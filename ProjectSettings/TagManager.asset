@@ -31,6 +31,7 @@ TagManager:
   - SideMenuBlur
   - SideMenuBackground
   - PreviewCard
+  - Overlay
   layers:
   - Default
   - TransparentFX

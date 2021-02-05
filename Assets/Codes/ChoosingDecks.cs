@@ -1,4 +1,8 @@
-﻿using System.Linq;
+﻿using Newtonsoft.Json.Linq;
+
+using System.Linq;
+
+using TMPro;
 
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,6 +26,9 @@ public class ChoosingDecks : MonoBehaviour
     /// </summary>
     public void Start()
     {
+        GlobalVariables.GetPreviews();
+        GlobalVariables.OpenJsonCardsFiles();
+
         var toggles = Resources.FindObjectsOfTypeAll<Toggle>();
 
         foreach (var data in GlobalVariables.dataList)
@@ -50,7 +57,7 @@ public class ChoosingDecks : MonoBehaviour
                 }
             }
         }
-
+        AccessPreviewData();
         FindToggles();
         
         // Add the toggles and the categories name in the dictionary
@@ -60,6 +67,29 @@ public class ChoosingDecks : MonoBehaviour
         GlobalVariables.PreviewsDictionary.Add("girly", new ToggleBool() { Toggle = girlyToggle });
         GlobalVariables.PreviewsDictionary.Add("daring", new ToggleBool() { Toggle = daringToggle });
         GlobalVariables.PreviewsDictionary.Add("school", new ToggleBool() { Toggle = schoolToggle });
+    }
+
+    public void AccessPreviewData()
+    {
+        var filePath = $"Json/previews";
+        var previewsJData = GlobalVariables.AccessFileData(filePath);
+        // Creates an array that contains the elements of the JSON file's array.
+        var previewsJArray = (JArray)previewsJData["previews"];
+        // For each and every object inside the "cards[]" array...
+        foreach (JObject content in previewsJArray.Children<JObject>())
+        { 
+            // For each and every data in the list of data...
+            foreach (var data in GlobalVariables.dataList)
+            {
+                var categoryPreviewDataList = content.Properties().ToList();
+
+                if(categoryPreviewDataList[0].Value.ToString() == data.Category.ToString())
+                {
+                    data.PreviewCard.PreviewGR = categoryPreviewDataList[1].Value.ToString();
+                    data.PreviewCard.PreviewEN = categoryPreviewDataList[2].Value.ToString();
+                }
+            }
+        }
     }
 
     /// <summary>
@@ -131,35 +161,72 @@ public class ChoosingDecks : MonoBehaviour
         
         // Gets the preview card
         var previewCard = Resources.FindObjectsOfTypeAll<GameObject>().FirstOrDefault(g => g.CompareTag("PreviewCard"));
+        // Gets the overlay
+        var overlay = Resources.FindObjectsOfTypeAll<GameObject>().FirstOrDefault(g => g.CompareTag("Overlay"));
+        overlay.SetActive(true);
+
+        foreach (var data in GlobalVariables.dataList)
+        {
+            if (data.Category.ToString() == categoryTag)
+            {
+                // Gets the close button
+                var closeButton = previewCard.transform.GetChild(0);
+                // Sets the close button's image as the image in resources that has the name "categoryX"
+                closeButton.GetComponent<Button>().image.sprite = data.PreviewCard.CloseButtonImage;
+                closeButton.tag = deckTag;
+
+                // Gets the deck cards preview image
+                var deckPreviewImage = previewCard.transform.GetChild(1);
+                // Sets the deck cards preview image as the image in resources that has the name "category"
+                deckPreviewImage.GetComponent<Image>().sprite = data.PreviewCard.DeckPreviewImage;
+
+                // Gets the deck cards preview text GUI element
+                var deckPreviewText = previewCard.transform.GetChild(2);
+
+                // Gets the ads button
+                var adsButton = previewCard.transform.GetChild(3);
+                // Gets the ads button text
+                var adsButtonText = adsButton.GetChild(1);
+
+                // Gets the toggle inside a category's preview
+                var categoryToggle = previewCard.transform.GetChild(4);
+                categoryToggle.tag = "SideMenu";
+                // Gets the toggle's background
+                var toggleBackground = categoryToggle.transform.GetChild(0);
+                //Gets the background's check mark
+                var toggleCheckmark = toggleBackground.transform.GetChild(0);
+                // Sets the check mark's image as the image in resources that has the name "categoryAfter"
+                toggleCheckmark.GetComponent<Image>().sprite = data.PreviewCard.ToggleCheckMarkImage;
+                // Sets the check mark inactive
+                categoryToggle.GetComponent<Toggle>().isOn = false;
+
+                // Gets the unlocked cards text GUI element
+                var numberOfUnlockedCardsText = previewCard.transform.GetChild(5);
+                
+                // Gets the buy complete deck button
+                var buyAllButton = previewCard.transform.GetChild(6);
+                // Sets the button's image as the image that is in the resources as "categoryBuy"
+                buyAllButton.GetComponent<Button>().image.sprite = data.PreviewCard.BuyAllButtonImage;
+                var buyAllText = buyAllButton.GetChild(0);
+
+                if (GlobalVariables.Language == LanguageEnum.English)
+                {
+                    deckPreviewText.GetComponent<TextMeshProUGUI>().text = $"{data.Length}{data.PreviewCard.PreviewEN}";
+                    numberOfUnlockedCardsText.GetComponent<TextMeshProUGUI>().text = $"unlocked ";
+                    adsButtonText.GetComponent<TextMeshProUGUI>().text = $"unlock 5";
+                    buyAllText.GetComponent<TextMeshProUGUI>().text = "buy all";
+                }
+                else if (GlobalVariables.Language == LanguageEnum.Greek)
+                {
+                    deckPreviewText.GetComponent<TextMeshProUGUI>().text = $"{data.Length}{data.PreviewCard.PreviewGR}";
+                    numberOfUnlockedCardsText.GetComponent<TextMeshProUGUI>().text = $"ξεκλειδωμένες ";
+                    adsButtonText.GetComponent<TextMeshProUGUI>().text = $"ξεκλείδωσε 5";
+                    buyAllText.GetComponent<TextMeshProUGUI>().text = "παρ\'τες όλες";
+                }
+
+            }
+        }
         
-        // Gets the close button
-        var closeButton = previewCard.transform.GetChild(0);
-        // Sets the close button's image as the image in resources that has the name "categoryX"
-        closeButton.GetComponent<Button>().image.sprite = Resources.Load<Sprite>(StringsAndConsants.previewsLocation + categoryTag + "X");
-        closeButton.tag = deckTag;
-
-        // Gets the deck cards preview image
-        var deckPreviewImage = previewCard.transform.GetChild(1);
-        // Sets the deck cards preview image as the image in resources that has the name "category"
-        deckPreviewImage.GetComponent<Image>().sprite = Resources.Load<Sprite>(StringsAndConsants.previewsLocation + categoryTag);
-
-        // Gets the toggle inside a category's preview
-        var categoryToggle = previewCard.transform.GetChild(4);
-        categoryToggle.tag = "SideMenu";
-        // Gets the toggle's background
-        var toggleBackground = categoryToggle.transform.GetChild(0); 
-        //Gets the background's check mark
-        var toggleCheckmark = toggleBackground.transform.GetChild(0);
-        // Sets the check mark's image as the image in resources that has the name "categoryAfter"
-        toggleCheckmark.GetComponent<Image>().sprite = Resources.Load<Sprite>(StringsAndConsants.previewsLocation + categoryTag + "After");
-        // Sets the check mark inactive
-        categoryToggle.GetComponent<Toggle>().isOn = false;
-
-        // Gets the buy complete deck button
-        var buyAllButton = previewCard.transform.GetChild(6);
-        // Sets the button's image as the image that is in the resources as "categoryBuy"
-        buyAllButton.GetComponent<Button>().image.sprite = Resources.Load<Sprite>(StringsAndConsants.previewsLocation + categoryTag + "Buy");
-
         previewCard.SetActive(true);
     }
 
@@ -215,25 +282,22 @@ public class ChoosingDecks : MonoBehaviour
     /// </summary>
     public void OnDestroy()
     {
-        //// Sets each toggle's boolean in the global variables class equal to the toggle's booleans in the scene
-        //GlobalVariables.familyTime.ToggleBool = familyToggle.isOn;
-        //GlobalVariables.sexyTime.ToggleBool = sexyToggle.isOn;
-        //GlobalVariables.machoTime.ToggleBool = machoToggle.isOn;
-        //GlobalVariables.girlyTime.ToggleBool = girlyToggle.isOn;
-        //GlobalVariables.daringTime.ToggleBool = daringToggle.isOn;
-        //GlobalVariables.schoolTime.ToggleBool = schoolToggle.isOn;
-
+        // For each data in the list...
         foreach(var data in GlobalVariables.dataList)
         {
+            // For each category and toggle pair...
             foreach (var categoryAndTogglePair in GlobalVariables.PreviewsDictionary)
             {
+                // If the category is NOT locked... 
                 if (data.IsLocked == false && data.Category.ToString() == categoryAndTogglePair.Key)
                 {
+                    // Gets the toggle's is On value
                     data.ToggleBool = categoryAndTogglePair.Value.Toggle.isOn;
                 }
-
+                // If the category IS locked...
                 if (data.IsLocked == true && data.Category.ToString() == categoryAndTogglePair.Key)
                 {
+                    // Gets the preview's toggle is On valuje
                     data.ToggleBool = categoryAndTogglePair.Value.PreviewBool;
                 }
             }

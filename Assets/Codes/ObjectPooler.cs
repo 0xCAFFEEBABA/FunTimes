@@ -77,7 +77,6 @@ public class ObjectPooler : MonoBehaviour
     public Queue<GameObject> randomCardsQueue = new Queue<GameObject>();
     #endregion
 
-
     /// <summary>
     /// It's called before the scene is loaded.
     /// Creates the Pool Objects and adds them to a list
@@ -88,7 +87,7 @@ public class ObjectPooler : MonoBehaviour
     {
         // Unlocks the appropriate JSON files when the according toggle is on.
         // In this case it unlocks the family JSON file as it is our default category.
-        GlobalVariables.OpenJsonFiles();
+        GlobalVariables.OpenJsonCardsFiles();
         // Every time when opening the game scene the pool dictionary and the data and pools dictionary too,
         // must be empty so that there are no conflicts with previous game plays.
         GlobalVariables.poolDictionary = new Dictionary<CategoryEnum, Queue<GameObject>>();
@@ -96,7 +95,7 @@ public class ObjectPooler : MonoBehaviour
         // Creates a list of pools
         CreatePoolList();
         // Gets the images from the dataList.
-        GlobalVariables.GetImages(GlobalVariables.dataList);
+        GlobalVariables.GetImages();
         // Fills the dataAndPoolsDictionary.
         CreateDataAndPoolsDictionary();
         // For each and every pool in the pools list...

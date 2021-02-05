@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json.Linq;
-using System.Collections;
 using UnityEngine;
 
 public class Data
@@ -43,4 +42,9 @@ public class Data
    /// The language for the data and game
    /// </summary>
     public LanguageEnum Language { get; set; }
+
+    /// <summary>
+    /// The category's preview card
+    /// </summary>
+    public PreviewCard PreviewCard { get; set; }
 }
